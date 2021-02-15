@@ -1,3 +1,4 @@
 module.exports = {
-  Post: require("./post")
+  Child: require("./ChildM"),
+  User: require("./UserM"),
 };

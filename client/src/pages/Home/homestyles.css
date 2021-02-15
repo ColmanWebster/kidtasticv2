@@ -1,0 +1,9 @@
+.frontPagePics {
+  max-height: 40vmin;
+  max-width: 40vmin;
+}
+
+.circularImg {
+  max-width: 5vh;
+  border-radius: 100px;
+}
