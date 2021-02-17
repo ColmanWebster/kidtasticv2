@@ -1,4 +1,4 @@
 module.exports = {
   Child: require("./ChildM"),
-  User: require("./UserM"),
+  User: require("./User"),
 };

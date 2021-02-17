@@ -3,7 +3,7 @@ const userController = require("../../controllers/userController");
 
 router
   .route("/")
-  .get(userController.getCurrentUser)
+  // .get(userController.getCurrentUser)
   .post(userController.create);
 
 router.route("/login").post(userController.login);
