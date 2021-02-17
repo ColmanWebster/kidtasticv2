@@ -46,16 +46,11 @@ export default function Login() {
 
   function handleFormSubmit(event) {
     event.preventDefault();
-    const yayGif = `
-    <iframe src="https://giphy.com/embed/9PyhoXey73EpW" width="400" height="362" frameBorder="0" class="giphy-embed" allowFullScreen>`;
-    const attachMe = (document.getElementById("attachMe").innerHTML = yayGif);
-    if (
-      formObject.name &&
-      formObject.email &&
-      formObject.username &&
-      formObject.password &&
-      formObject.confirmedPassword
-    ) {
+    // console.log("Working");
+    // const yayGif = `
+    // <iframe src="https://giphy.com/embed/9PyhoXey73EpW" width="400" height="362" frameBorder="0" class="giphy-embed" allowFullScreen>`;
+    // const attachMe = (document.getElementById("attachMe").innerHTML = yayGif);
+    if (true) {
       console.log("Working");
       API.saveUser({
         name: formObject.name,

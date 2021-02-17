@@ -1,11 +1,13 @@
 const db = require("../models");
 
 module.exports = {
-  getCurrentUser: function (req, res) {
-    res.json("yay");
-  },
+  // getCurrentUser: function (req, res) {
+  //   res.json("yay");
+  // },
+
   create: function (req, res) {
-    db.User.create(req.body)
+    console.log("testing");
+    db.Users.create(req.body)
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
