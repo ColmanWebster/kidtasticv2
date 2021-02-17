@@ -1,0 +1,18 @@
+.footer {
+  min-height: 100px;
+  background: linear-gradient(
+    90deg,
+    rgba(150, 218, 177, 1) 19%,
+    rgba(111, 247, 88, 1) 90%
+  );
+  position: relative;
+}
+
+.footer span {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 3px;
+  background: #b8b8b8;
+}

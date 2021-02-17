@@ -1,8 +1,17 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import "./homestyles.css";
+import PageDivider from "../../components/PageDivider";
+import WelcomeCard from "../../components/Cards/WelcomeCard";
+import HomePageLeftCard from "../../components/Cards/HomePageLeftCard";
+import HomePageRightCard from "../../components/Cards/HomePageRightCard";
+import CovidCard from "../../components/Cards/CovidCard";
+import KidtasticIntroCard from "../../components/Cards/KidtasticIntroCard";
+import LandScapeRightCard from "../../components/Cards/LandScapeRightCard";
+import MobileFriendlyCard from "../../components/Cards/MobileFriendlyCard";
+import KidSafeCard from "../../components/Cards/KidSafeCard";
+import HundredPercentFreeCard from "../../components/Cards/HundredPercentFreeCard";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -13,95 +22,103 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     color: theme.palette.text.secondary,
   },
+  spanK: {
+    color: "#7f9fdb",
+  },
+  spanI: {
+    color: "#98e3be",
+  },
+  spanD: {
+    color: "#dea0f2",
+  },
+  spanT: {
+    color: "#e7f0b4",
+  },
+  spanA: {
+    color: "#ed8080",
+  },
+  spanS: {
+    color: "#d6c8e0",
+  },
+  spanTT: {
+    color: "#f2cf96",
+  },
+  spanII: {
+    color: "pink",
+  },
+  spanC: {
+    color: "#a59edb",
+  },
 }));
 
 export default function CenteredGrid() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <Grid container spacing={3}>
-        <Grid item xs={12}>
-          <Paper className={classes.paper}>
-            <h1>
-              {" "}
-              <img
-                src="./assets/circular/clifford.jpg"
-                alt="clifford!"
-                className="circularImg"
-              ></img>
-              <img
-                src="./assets/circular/booba.jpg"
-                alt="clifford!"
-                className="circularImg"
-              ></img>
-              <img
-                src="./assets/circular/sophia2.png"
-                alt="clifford!"
-                className="circularImg"
-              ></img>
-              KidTastic
+    <div className="bodyy">
+      <div className={classes.root}>
+        {/* Declare grid spacing */}
+        <Grid container spacing={2}>
+          {/* Grid Start - First Full Row */}
+          <Grid item xs={12} lg={12}>
+            <h1 className="kidfrontlogo">
+              <span className={classes.spanK}>K</span>
+              <span className={classes.spanI}>I</span>
+              <span className={classes.spanD}>D</span>
+              <span className={classes.spanT}>T</span>
+              <span className={classes.spanA}>A</span>
+              <span className={classes.spanS}>S</span>
+              <span className={classes.spanTT}>T</span>
+              <span className={classes.spanII}>I</span>
+              <span className={classes.spanC}>C</span>
             </h1>
-          </Paper>
-        </Grid>
-        <Grid item xs={6}>
-          <Paper className={classes.paper}>
-            <h4>
-              Welcome to Kidtastic 2.0! We have successfully migrated to better
-              and faster servers for all your daily activities on here. Our team
-              has been working long and hard from scratch to deliver un-matched,
-              top notch quality. The Watch Page has increased in videos and
-              content quality, Over 50 new and more awesome than ever videos
-              have been added, so get your popcorn and drinks ready!
-            </h4>
-            <iframe
-              src="https://giphy.com/embed/Cn44PUsTVimwBAtIRx"
-              width="480"
-              height="270"
-              frameBorder="0"
-              class="giphy-embed"
-              allowFullScreen
-            ></iframe>
-            <p></p>
-          </Paper>
-        </Grid>
-        <Grid item xs={6}>
-          <Paper className={classes.paper}>
-            We will continue to deliver great quality to our users!
-          </Paper>
-        </Grid>
-        <Grid item xs={3}>
-          <Paper className={classes.paper}>
+          </Grid>
+
+          <Grid lg={2} xs={2}></Grid>
+          <Grid item xs={12} lg={6}>
             <img
-              src="./assets/images/ladybug.png"
-              alt="Miraculous Laddybug is back!"
-              className="frontPagePics"
+              src="./assets/fontpics/bigbang.png"
+              alt="update"
+              className="bigbang"
             ></img>
-          </Paper>
+          </Grid>
+          <Grid lg={2}></Grid>
+          <Grid item xs={12} lg={3}>
+            <HomePageLeftCard />
+          </Grid>
+          <Grid item xs={12} lg={6}>
+            <WelcomeCard />
+          </Grid>
+          <Grid item xs={12} lg={3}>
+            <HomePageRightCard />
+          </Grid>
+
+          <Grid item xs={12} lg={6}>
+            <CovidCard />
+          </Grid>
+          <Grid item xs={12} lg={6}>
+            <KidtasticIntroCard />
+          </Grid>
+          {/* <Grid item xs={6} lg={3}>
+            <CoolThingsCard />
+           
+          </Grid> */}
+
+          <Grid item xs={6} lg={6}>
+            <MobileFriendlyCard />
+          </Grid>
+          <Grid item xs={6} lg={6}>
+            <KidSafeCard />
+          </Grid>
+          <PageDivider />
+          <Grid item xs={12} lg={12}>
+            <LandScapeRightCard />
+          </Grid>
+          <Grid item xs={12} lg={12}>
+            <HundredPercentFreeCard />
+          </Grid>
         </Grid>
-        <Grid item xs={3}>
-          <Paper className={classes.paper}>
-            <img
-              src="./assets/images/Obi.png"
-              alt="Master Obi Wan in the building"
-              className="frontPagePics"
-            ></img>
-          </Paper>
-        </Grid>
-        <Grid item xs={3}>
-          <Paper className={classes.paper}>
-            {" "}
-            <img
-              src="./assets/images/korra.webp"
-              alt="Avatar: The Legend of Korra"
-              className="frontPagePics"
-            ></img>
-          </Paper>
-        </Grid>
-        <Grid item xs={3}>
-          <Paper className={classes.paper}>xs=3</Paper>
-        </Grid>
-      </Grid>
+      </div>
     </div>
   );
 }

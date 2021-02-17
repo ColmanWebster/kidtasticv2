@@ -25,11 +25,14 @@
   },
   "homepage": "https://github.com/clew-bot/kidtasticv2#readme",
   "dependencies": {
+    "@material-ui/lab": "^4.0.0-alpha.57",
+    "axios": "^0.21.1",
     "bcrypt": "^5.0.0",
     "express": "^4.17.1",
     "if-env": "^1.0.4",
     "mongoose": "^5.11.16",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "rsuite": "^4.8.9"
   },
   "devDependencies": {
     "concurrently": "^5.3.0",

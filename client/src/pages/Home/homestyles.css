@@ -1,9 +1,72 @@
-.frontPagePics {
-  max-height: 40vmin;
-  max-width: 40vmin;
+.molang {
+  height: 15vh;
+  float: left;
 }
 
-.circularImg {
-  max-width: 5vh;
-  border-radius: 100px;
+.intro {
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.adventure {
+  height: 15vh;
+  float: right;
+}
+
+.bigbang {
+  width: 60vw;
+}
+.bodyy {
+  color: "red";
+}
+.germ {
+  width: 26vmin;
+  float: left;
+}
+
+.covidPara {
+  font-size: 20px;
+}
+
+.jerry {
+  float: right;
+  height: 15vh;
+}
+
+.korra {
+  height: 30vh;
+  float: left;
+}
+
+.masha {
+  float: left;
+  height: 8vw;
+}
+.mashatext {
+  color: black;
+  font-size: 3vw;
+}
+
+.kidfrontlogo {
+  font-size: 18vmin;
+  text-align: center;
+}
+.obiwan {
+  float: right;
+  height: 10vw;
+}
+.simon {
+  height: 10em;
+  margin-left: 30px;
+  margin-top: 40px;
+  float: left;
+}
+.partners {
+  height: 10vw;
+  height: 5vw;
+  display: flex;
+  justify-content: space-evenly;
+}
+.bodyy {
+  background-color: beige;
 }

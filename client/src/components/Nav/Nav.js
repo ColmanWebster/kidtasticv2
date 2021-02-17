@@ -7,33 +7,46 @@ import Typography from "@material-ui/core/Typography";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import Button from "@material-ui/core/Button";
-import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
 import Slide from "@material-ui/core/Slide";
-import AdbIcon from "@material-ui/icons/Adb";
-import AcUnitIcon from "@material-ui/icons/AcUnit";
-import Icon from "@material-ui/core/Icon";
+import GestureIcon from "@material-ui/icons/Gesture";
+import YouTubeIcon from "@material-ui/icons/YouTube";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import HomeIcon from "@material-ui/icons/Home";
+import GradeIcon from "@material-ui/icons/Grade";
+import ChildCareIcon from "@material-ui/icons/ChildCare";
+import "./navstyle.css";
 
 const navLinks = [
   {
     link: "/",
     title: "Home",
-    icon: <AdbIcon />,
+    icon: <HomeIcon />,
   },
   {
     link: "/login",
     title: "Login",
-    icon: <AcUnitIcon />,
+    icon: <ExitToAppIcon />,
+  },
+  {
+    link: "/dashboard",
+    title: "Dashboard",
+    icon: <ChildCareIcon />,
   },
   {
     link: "/watch",
     title: "Watch",
-    icon: <AcUnitIcon />,
+    icon: <YouTubeIcon />,
   },
   {
     link: "/Draw",
     title: "Draw",
-    icon: <AcUnitIcon />,
+    icon: <GestureIcon />,
+  },
+  {
+    link: "/imagine",
+    title: "Imagine",
+    icon: <GradeIcon />,
   },
 ];
 
@@ -65,7 +78,7 @@ export default function HideAppBar(props) {
     <React.Fragment>
       <CssBaseline />
       <HideOnScroll {...props}>
-        <AppBar>
+        <AppBar className="appbarr" style={{ backgroundColor: "#f4ff82" }}>
           <Toolbar>
             {navLinks.map((link) => {
               return (
