@@ -6,8 +6,9 @@ module.exports = {
   // },
 
   create: function (req, res) {
-    console.log("testing");
-    db.Users.create(req.body)
+    console.log(req.body);
+    console.log("req.body ");
+    db.User.create(req.body)
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
@@ -22,6 +23,7 @@ module.exports = {
   //   }
   // },
   login: async function (req, res) {
+    console.log("Something")
     const user = await db.User.find({ email: req.body.email });
     if (!user) {
       res.error("no user found!");
