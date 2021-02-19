@@ -4,12 +4,17 @@ const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
+const bcrypt = require("bcrypt");
 
 dotenv.config();
 
-mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, () => {
-  console.log("You're connected to the Kidtastic database. Nice.");
-});
+mongoose.connect(
+  process.env.DB_CONNECT,
+  { useNewUrlParser: true, useUnifiedTopology: true },
+  () => {
+    console.log("You're connected to the Kidtastic database. Nice.");
+  }
+);
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));

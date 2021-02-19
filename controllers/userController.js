@@ -5,13 +5,14 @@ module.exports = {
   //   res.json("yay");
   // },
 
-  create: async (req, res) => {
-    console.log(req.body);
-    const emailExists = await db.User.findOne({ email: req.body.email });
+  create: async ({ body: { confirmedPassword, ...body } }, res) => {
+    const emailExists = await db.User.findOne({ email: body.email });
     if (emailExists) return res.status(400).send("Email already exists.");
-    db.User.create(req.body)
-      .then((dbModel) => res.json(dbModel))
-      .catch((err) => res.status(422).json(err));
+    else {
+      db.User.create(body)
+        .then((dbModel) => res.json(dbModel))
+        .catch((err) => res.status(422).json(err));
+    }
   },
   // signup: async function ({ body: { userData, parentId } }, res) {
   //   let user;
