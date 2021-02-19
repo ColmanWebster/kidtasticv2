@@ -1,13 +1,13 @@
-const User = require("./User");
-const Child = require("./Child");
+// const User = require("./User");
+// const Child = require("./Child");
 
-User.hasMany(Child, {
-  foreignKey: "userId",
-  onDelete: "CASCADE",
-});
+// User.hasMany(Child, {
+//   foreignKey: "userId",
+//   onDelete: "CASCADE",
+// });
 
-Child.belongsTo(User, {
-  foreignKey: "userId",
-});
+// Child.belongsTo(User, {
+//   foreignKey: "userId",
+// });
 
-module.exports = { User, Child };
+// module.exports = { User, Child };
