@@ -5,9 +5,10 @@ module.exports = {
   //   res.json("yay");
   // },
 
-  create: function (req, res) {
+  create: async (req, res) => {
     console.log(req.body);
-    console.log("req.body ");
+    const emailExists = await db.User.findOne({ email: req.body.email });
+    if (emailExists) return res.status(400).send("Email already exists.");
     db.User.create(req.body)
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
@@ -23,8 +24,11 @@ module.exports = {
   //   }
   // },
   login: async function (req, res) {
-    console.log("Something")
-    const user = await db.User.find({ email: req.body.email });
+    console.log("Something");
+    const user = await db.User.find({
+      email: req.body.email,
+      password: req.body.password,
+    });
     if (!user) {
       res.error("no user found!");
     }

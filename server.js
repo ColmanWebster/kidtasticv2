@@ -1,9 +1,15 @@
 const express = require("express");
-
+const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+dotenv.config();
+
+mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, () => {
+  console.log("You're connected to the Kidtastic database. Nice.");
+});
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -17,7 +23,7 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/kidtastic");
+// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/kidtastic");
 
 // Start the API server
 app.listen(PORT, function () {
