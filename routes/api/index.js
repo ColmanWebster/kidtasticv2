@@ -1,6 +1,7 @@
 const router = require("express").Router();
 // const postRoutes = require("./posts");
 const authRoutes = require("./user.js");
+const watchRoutes = require("./watch.js");
 
 // Post routes
 // router.get("/", authRoutes);
@@ -8,5 +9,7 @@ const authRoutes = require("./user.js");
 // router.use("/posts", postRoutes);
 
 router.use("/signup", authRoutes);
+
+router.use("/watch", watchRoutes);
 
 module.exports = router;
