@@ -46,10 +46,10 @@ export default function Login() {
 
   function handleFormSubmit(event) {
     event.preventDefault();
-    // console.log("Working");
-    // const yayGif = `
-    // <iframe src="https://giphy.com/embed/9PyhoXey73EpW" width="400" height="362" frameBorder="0" class="giphy-embed" allowFullScreen>`;
-    // const attachMe = (document.getElementById("attachMe").innerHTML = yayGif);
+
+    const yayGif = `
+    <iframe src="https://giphy.com/embed/9PyhoXey73EpW" width="400" height="362" frameBorder="0" class="giphy-embed" allowFullScreen>`;
+    const attachMe = (document.getElementById("attachMe").innerHTML = yayGif);
     if (true) {
       console.log("Working");
       API.saveUser({
@@ -62,7 +62,7 @@ export default function Login() {
 
         .then((res) => console.log(res))
 
-        .catch((err) => console.log(err));
+        .catch((err) => console.log(err.response.data));
     }
   }
 
