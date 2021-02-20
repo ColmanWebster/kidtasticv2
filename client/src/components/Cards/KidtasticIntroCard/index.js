@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Skeleton from "@material-ui/lab/Skeleton";
+import { VFXImg } from "react-vfx";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -27,7 +28,8 @@ const KidtasticIntroCard = (props) => {
     <Paper item xs={12} className={classes.paper}>
       <h1 className={classes.frontText}>
         {" "}
-        <img
+        <VFXImg
+          shader="slitScanTransition"
           src="./assets/images/korra2.png"
           alt="Wash your hands always for 10 seoconds at least and wear a mask."
           className="korra"
@@ -39,7 +41,8 @@ const KidtasticIntroCard = (props) => {
       ) : (
         <h6 className="covidPara">
           Kidtastic{" "}
-          <img
+          <VFXImg
+            shader="slitScanTransition"
             src="./assets/images/jerry.png"
             alt="Wash your hands always for 10 seoconds at least and wear a mask."
             className="jerry"
