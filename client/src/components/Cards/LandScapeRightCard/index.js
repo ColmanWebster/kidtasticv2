@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
-
+import { VFXImg } from "react-vfx";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -29,22 +29,26 @@ const LandscapeRightCard = () => {
           Trusted and partnered with leading corporations around the universe
         </h1>
         <div className="partners">
-          <img
+          <VFXImg
+            shader="glitch"
             src="./assets/images/capsulecorp.png"
             alt="capsule corp"
             className="landscape"
-          ></img>
-          <img
+          ></VFXImg>
+          <VFXImg
+            shader="halftone"
             src="./assets/images/stark.png"
             alt="stark industries"
             className="landscape"
-          ></img>
-          <img
+          ></VFXImg>
+          <VFXImg
+            shader="glitch"
             src="./assets/images/empirelogo.png"
             alt="stark industries"
             className="landscape"
-          ></img>
+          ></VFXImg>
           <img
+            shader="glitch"
             src="./assets/images/teamrocket.webp"
             alt="team rocket"
             className="landscape"

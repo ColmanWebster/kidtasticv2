@@ -3,6 +3,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import VideoThumb from "../../components/VideoThumb";
+import LetsWatchCard from "../../components/WatchCards/LetsWatchCard";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -39,7 +41,11 @@ export default function Watch() {
           </h3>
         </Grid>
         <Grid item xs={12}>
-          <Paper className={classes.paper}>xs=12</Paper>
+          <Paper className={classes.paper}>
+            <h1>
+              <LetsWatchCard />
+            </h1>
+          </Paper>
         </Grid>
         <Grid item xs={6}>
           <Paper className={classes.paper}>
