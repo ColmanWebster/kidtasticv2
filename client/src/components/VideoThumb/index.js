@@ -1,6 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
-import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(() => ({
@@ -9,7 +7,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-function SkeletonChildrenDemo({ id = "8SJSS_CB6jE" }) {
+export default function VideoThumb({ id = "8SJSS_CB6jE" }) {
   const classes = useStyles();
 
   return (
@@ -26,22 +24,5 @@ function SkeletonChildrenDemo({ id = "8SJSS_CB6jE" }) {
         />
       </a>
     </div>
-  );
-}
-
-SkeletonChildrenDemo.propTypes = {
-  loading: PropTypes.bool,
-};
-
-export default function VideoThumb() {
-  return (
-    <Grid container spacing={8}>
-      <Grid item xs>
-        <SkeletonChildrenDemo loading />
-      </Grid>
-      <Grid item xs>
-        <SkeletonChildrenDemo />
-      </Grid>
-    </Grid>
   );
 }

@@ -1,18 +1,20 @@
-/* .overlayBanner {
-  position: absolute;
-  width: 560px;
-  height: 1000px;
-  background: red;
-  top: 0px;
-  left: 0;
-} */
+.overlayBanner {
+  margin-bottom: 50px;
+}
 .ytp-pause-overlay,
 .ytp-scroll-min {
   display: none;
 }
 .thePlayer {
-  margin-top: 10vw;
+  margin-top: 1vw;
   margin-left: auto;
   margin-right: auto;
   border: 5px dashed black;
+}
+.controllers {
+  display: flex;
+  justify-content: center;
+}
+.controllerBtns {
+  color: white;
 }
