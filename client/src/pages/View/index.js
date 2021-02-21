@@ -1,25 +1,27 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Grid from "@material-ui/core/Grid";
 import TestCard from "../../components/WatchCards/TestCard";
 import { useParams } from "react-router-dom";
-
+import "./viewstyle.css";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
   paper: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(1),
     textAlign: "center",
     color: theme.palette.text.secondary,
-    marginBottom: "21vw",
+    marginBottom: "",
     backgroundColor: "#e8b11a",
   },
   margin: {
-    margin: theme.spacing(1),
+    margin: theme.spacing(0),
   },
   font: {
     textAlign: "center",
+  },
+  vidContainer: {
+    marginBottom: "100vw",
   },
 }));
 
@@ -30,12 +32,8 @@ export default function Login() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <Grid container spacing={3}>
-        <Grid item xs={12} lg={12}>
-          <TestCard {...urlParams} />
-        </Grid>
-      </Grid>
+    <div className={classes.vidContainer}>
+      <TestCard {...urlParams} />
     </div>
   );
 }

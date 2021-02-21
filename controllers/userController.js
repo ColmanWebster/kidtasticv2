@@ -34,7 +34,7 @@ module.exports = {
       res.error("no user found!");
     }
     if (user.isPasswordValid(req.body.password)) {
-      //res.json(user) or store session or send JWT
+      //res.json(user) or store session or send JWT //
     } else {
       res.error("wrong password!");
     }
