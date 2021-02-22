@@ -34,6 +34,7 @@
     "joi": "^17.4.0",
     "mongoose": "^5.11.16",
     "path": "^0.12.7",
+    "react-material-ui-carousel": "^2.1.2",
     "react-player": "^2.9.0",
     "react-vfx": "^0.4.1",
     "rsuite": "^4.8.9"
