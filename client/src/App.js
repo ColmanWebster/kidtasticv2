@@ -11,33 +11,34 @@ import Footer from "./components/Footer";
 import Wrapper from "./components/Wrapper";
 import Dashboard from "./pages/Dashboard";
 import Game from "./pages/Game";
+
 function App() {
-  const [activeLink, setActiveLink] = useState("");
-  return (
-    <>
-      {" "}
-      <Router>
-        <Wrapper>
-          <div>
-            <StoreProvider>
-              <NewNav selected={activeLink} setActiveLink={setActiveLink} />
-              <Switch>
-                <Route exact path="/" component={Home} />
-                <Route exact path="/home" component={Home} />
-                <Route exact path="/watch" component={Watch} />
-                <Route exact path="/login" component={Login} />
-                <Route exact path="/signup" component={Signup} />
-                <Route exact path="/dashboard" component={Dashboard} />
-                <Route exact path="/game" component={Game} />
-                <Route component={NoMatch} />
-              </Switch>
-            </StoreProvider>
-          </div>
-        </Wrapper>
-        <Footer />
-      </Router>
-    </>
-  );
+	const [activeLink, setActiveLink] = useState("");
+	return (
+		<>
+			{" "}
+			<Router>
+				<Wrapper>
+					<div>
+						<StoreProvider>
+							<NewNav selected={activeLink} setActiveLink={setActiveLink} />
+							<Switch>
+								<Route exact path="/" component={Home} />
+								<Route exact path="/home" component={Home} />
+								<Route exact path="/watch" component={Watch} />
+								<Route exact path="/login" component={Login} />
+								<Route exact path="/signup" component={Signup} />
+								<Route exact path="/dashboard" component={Dashboard} />
+								<Route exact path="/game" component={Game} />
+								<Route component={NoMatch} />
+							</Switch>
+						</StoreProvider>
+					</div>
+				</Wrapper>
+				<Footer />
+			</Router>
+		</>
+	);
 }
 
 export default App;
