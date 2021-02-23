@@ -4,7 +4,29 @@
   border-radius: 10px;
 }
 .sm {
-  height: 12vw;
-  width: 12vw;
+  height: 21vw;
+  width: 15vw;
+  border-radius: 5px;
+}
+.md {
+  height: 21vw;
+  width: 30vw;
+  border-radius: 5px;
+}
+
+.lg-height {
+  height: 43vw;
+  width: 30vw;
+  border-radius: 5px;
+}
+
+.md-half {
+  height: 30vw;
+  width: 48vw;
+  border-radius: 5px;
+}
+.md-hori-8 {
+  height: 21vw;
+  width: 65vw;
   border-radius: 5px;
 }
