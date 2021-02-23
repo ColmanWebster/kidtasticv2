@@ -7,12 +7,14 @@ import { StoreProvider } from "./utils/GlobalState";
 import NewNav from "./components/Nav/Nav";
 import Watch from "./pages/Watch";
 import Login from "./pages/Login";
-import Footer from "./components/Footer";
+// import Footer from "./components/Footer";
 import Wrapper from "./components/Wrapper";
 import Dashboard from "./pages/Dashboard";
+import View from "./pages/View";
 import Game from "./pages/Game";
 
 function App() {
+<<<<<<< HEAD
 	const [activeLink, setActiveLink] = useState("");
 	return (
 		<>
@@ -39,6 +41,35 @@ function App() {
 			</Router>
 		</>
 	);
+=======
+  const [activeLink, setActiveLink] = useState("");
+  return (
+    <>
+      {" "}
+      <Router>
+        <Wrapper>
+          <div>
+            <StoreProvider>
+              <NewNav selected={activeLink} setActiveLink={setActiveLink} />
+              <Switch>
+                <Route exact path="/" component={Home} />
+                <Route exact path="/home" component={Home} />
+                <Route exact path="/watch" component={Watch} />
+                <Route exact path="/watch/:id" component={View} />
+                <Route exact path="/login" component={Login} />
+                <Route exact path="/signup" component={Signup} />
+                <Route exact path="/dashboard" component={Dashboard} />
+                <Route exact path="/game" component={Game} />
+                <Route component={NoMatch} />
+              </Switch>
+            </StoreProvider>
+          </div>
+        </Wrapper>
+        {/* <Footer /> */}
+      </Router>
+    </>
+  );
+>>>>>>> f968f54533b8a4eb54e95b4534f5366e46607c64
 }
 
 export default App;

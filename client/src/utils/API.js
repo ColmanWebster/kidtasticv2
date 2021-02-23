@@ -5,4 +5,8 @@ export default {
   saveUser: function (postData) {
     return axios.post("/api/signup", postData);
   },
+
+  loginUser: function (loginData) {
+    return axios.post("/api/login", loginData);
+  },
 };

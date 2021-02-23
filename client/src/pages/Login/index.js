@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import MButton from "../../components/LoginButton";
+// import MButton from "../../components/LoginButton";
 import TextField from "@material-ui/core/TextField";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
+import API from "../../utils/API.js";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,6 +37,27 @@ const hahaha = () => {
 
 export default function Login() {
   const classes = useStyles();
+  const [formObject, setFormObject] = useState({});
+
+  function handleInputChange(event) {
+    const { name, value } = event.target;
+
+    setFormObject({ ...formObject, [name]: value });
+    console.log(setFormObject);
+  }
+  const handleLoginEvent = () => {
+    if (true) {
+      console.log("Working");
+      API.loginUser({
+        username: formObject.username,
+        password: formObject.password,
+      })
+
+        .then((res) => console.log(res))
+
+        .catch((err) => console.log(err.response.data));
+    }
+  };
 
   return (
     <div className={classes.root}>
@@ -48,12 +70,16 @@ export default function Login() {
           <Paper className={classes.paper}>
             <form className={classes.root} noValidate autoComplete="off">
               <TextField
+                name="username"
+                onChange={handleInputChange}
                 id="standard-secondary"
                 label="username"
                 color="secondary"
               />
               <br></br>
               <TextField
+                name="password"
+                onChange={handleInputChange}
                 id="standard-secondary"
                 label="password"
                 type="password"
@@ -61,7 +87,8 @@ export default function Login() {
               />
             </form>
             <br></br>
-            <MButton />
+            <button onClick={handleLoginEvent}>LOGIN</button>
+            {/* <MButton /> */}
             <h6 id="para">
               <button id="replace" onClick={hahaha}>
                 Forgot your password?
