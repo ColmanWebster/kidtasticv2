@@ -10,18 +10,25 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(1),
     textAlign: "center",
     color: theme.palette.text.secondary,
-    backgroundColor: "#dced98",
+    backgroundColor: "#202124",
     marginLeft: "5vw",
     marginRight: "5vw",
+  },
+  watcher: {
+    width: "50vw",
   },
 }));
 
 const LetsWatchCard = () => {
   const classes = useStyles();
   return (
-    <Paper item xs={12} className={classes.paper}>
-      <h1 className="">Let's Watch ＼(≧▽≦)／</h1>{" "}
-    </Paper>
+    <article item xs={12} className={classes.paper}>
+      <img
+        src="./assets/fontpics/kidtasticwatch.png"
+        alt="kidtastic watch"
+        className={classes.watcher}
+      />
+    </article>
   );
 };
 
