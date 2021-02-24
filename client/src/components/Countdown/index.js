@@ -1,142 +1,113 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import "./style.css";
 
-class Countdown extends Component {
-	state = {
-		timerOn: false,
-		timerStart: 0,
-		timerTime: 0,
-	};
+export default function Countdown({ show }) {
+	const [timerOn, setTimerOn] = useState(false);
+	const [timerTime, setTimerTime] = useState(0);
+	const [timerStart, setTimerStart] = useState(0);
+	const [currentTime, setCurrentTIme] = useState(0);
 
-	componentDidMount() {
-		console.log("STARTING TIME!", this.props.time);
-		if (this.props.time) this.startTimer(this.props.time);
-	}
+	useEffect(() => {
+		const timer =
+			localStorage.getItem("timer") &&
+			JSON.parse(localStorage.getItem("timer"));
+		if (timer?.active) {
+			setTimerTime(timer.time);
+			setTimerStart(timer.start);
+			setTimerOn(true);
+		}
+	}, []);
 
-	startTimer = (start) => {
-		this.setState({
-			timerOn: true,
-			timerTime: typeof start === "number" ? start : this.state.timerTime,
-			timerStart: typeof start === "number" ? start : this.state.timerTime,
-		});
-		this.timer = setInterval(() => {
-			const newTime = this.state.timerTime - 1000;
-			if (newTime >= 0) {
-				this.setState({
-					timerTime: newTime,
-				});
+	useEffect(() => {
+		if (timerOn) {
+			const timer = setTimeout(() => {
 				localStorage.setItem(
 					"timer",
-					JSON.stringify({ active: true, remaining: newTime }),
+					JSON.stringify({
+						active: true,
+						time: timerTime,
+						start: timerStart,
+					}),
 				);
-			} else {
-				clearInterval(this.timer);
-				this.setState({ timerOn: false });
-				localStorage.setItem(
-					"timer",
-					JSON.stringify({ active: false, remaining: 0 }),
+				const current = timerTime - (Date.now() - timerStart) / 1000;
+				const hours = ("0" + Math.floor(current / 3600)).slice(-2);
+				const minutes = ("0" + Math.floor((current - hours * 3600) / 60)).slice(
+					-2,
 				);
-				alert("Countdown ended");
-			}
-		}, 1000);
-	};
-
-	stopTimer = () => {
-		clearInterval(this.timer);
-		this.setState({ timerOn: false });
-	};
-	resetTimer = () => {
-		if (this.state.timerOn === false) {
-			this.setState({
-				timerTime: this.state.timerStart,
-			});
+				const seconds = (
+					"0" + Math.ceil(current - hours * 3600 - minutes * 60)
+				).slice(-2);
+				if (current <= 0) {
+					setCurrentTIme({ hours: "00", minutes: "00", seconds: "00" });
+					setTimerOn(false);
+					localStorage.removeItem("timer");
+					//put logic to handle time runing out;
+					timeRunsOut();
+					return clearTimeout(timer);
+				}
+				setCurrentTIme({ hours, minutes, seconds });
+			}, 1000);
+			return () => clearTimeout(timer);
 		}
+	}, [timerStart, timerTime, timerOn, currentTime]);
+
+	const timeRunsOut = () => {
+		alert("time is up buttercup!");
 	};
 
-	adjustTimer = (input) => {
-		const { timerTime, timerOn } = this.state;
-		if (!timerOn) {
-			if (input === "incHours" && timerTime + 3600000 < 216000000) {
-				this.setState({ timerTime: timerTime + 3600000 });
-			} else if (input === "decHours" && timerTime - 3600000 >= 0) {
-				this.setState({ timerTime: timerTime - 3600000 });
-			} else if (input === "incMinutes" && timerTime + 60000 < 216000000) {
-				this.setState({ timerTime: timerTime + 60000 });
-			} else if (input === "decMinutes" && timerTime - 60000 >= 0) {
-				this.setState({ timerTime: timerTime - 60000 });
-			} else if (input === "incSeconds" && timerTime + 1000 < 216000000) {
-				this.setState({ timerTime: timerTime + 1000 });
-			} else if (input === "decSeconds" && timerTime - 1000 >= 0) {
-				this.setState({ timerTime: timerTime - 1000 });
-			}
-		}
+	const calculateTime = ({ target: { name } }) => {
+		const timeChange = timerTime + Number(name);
+		const newTime =
+			timeChange < 0 ? 0 : timeChange > 216000 ? 216000 : timeChange;
+		const hours = ("0" + Math.floor(newTime / 3600)).slice(-2);
+		const minutes = ("0" + Math.floor((newTime - hours * 3600) / 60)).slice(-2);
+		const seconds = ("0" + (newTime - hours * 3600 - minutes * 60)).slice(-2);
+		setTimerTime(newTime);
+		setCurrentTIme({ minutes, seconds, hours });
 	};
 
-	render() {
-		const { timerTime, timerStart, timerOn } = this.state;
-		let seconds = ("0" + (Math.floor((timerTime / 1000) % 60) % 60)).slice(-2);
-		let minutes = ("0" + Math.floor((timerTime / 60000) % 60)).slice(-2);
-		let hours = ("0" + Math.floor((timerTime / 3600000) % 60)).slice(-2);
+	return (
+		<div className="Countdown" style={{ display: show ? "block" : "none" }}>
+			<div className="Countdown-header">TIMER</div>
+			<div className="Countdown-label">Hours : Minutes : Seconds</div>
+			<div className="Countdown-display">
+				<button name="3600" onClick={calculateTime}>
+					H &#8679;
+				</button>
+				<button name="60" onClick={calculateTime}>
+					M &#8679;
+				</button>
+				<button name="1" onClick={calculateTime}>
+					S &#8679;
+				</button>
 
-		return (
-			<div className="Countdown">
-				<div className="Countdown-header">TIMER:</div>
-				{/* <div className="Countdown-label">Hours : Minutes : Seconds</div> */}
-				<div className="Countdown-display">
-					<button onClick={() => this.adjustTimer("incHours")}>
-						H &#8679;
-					</button>
-					<button onClick={() => this.adjustTimer("incMinutes")}>
-						M &#8679;
-					</button>
-					<button onClick={() => this.adjustTimer("incSeconds")}>
-						S &#8679;
-					</button>
-
-					<div className="Countdown-time">
-						{hours} : {minutes} : {seconds}
-					</div>
-
-					<button onClick={() => this.adjustTimer("decHours")}>
-						H &#8681;
-					</button>
-					<button onClick={() => this.adjustTimer("decMinutes")}>
-						M &#8681;
-					</button>
-					<button onClick={() => this.adjustTimer("decSeconds")}>
-						S &#8681;
-					</button>
+				<div className="Countdown-time">
+					{currentTime.hours || "00"} : {currentTime.minutes || "00"} :{" "}
+					{currentTime.seconds || "00"}
 				</div>
 
-				{timerOn === false && (timerStart === 0 || timerTime === timerStart) && (
-					<button className="Button-start" onClick={this.startTimer}>
-						Start
-					</button>
-				)}
-				{timerOn === true && timerTime >= 1000 && (
-					<button className="Button-stop" onClick={this.stopTimer}>
-						Stop
-					</button>
-				)}
-				{timerOn === false &&
-					timerStart !== 0 &&
-					timerStart !== timerTime &&
-					timerTime !== 0 && (
-						<button className="Button-start" onClick={this.startTimer}>
-							Resume
-						</button>
-					)}
-
-				{(timerOn === false || timerTime < 1000) &&
-					timerStart !== timerTime &&
-					timerStart > 0 && (
-						<button className="Button-reset" onClick={this.resetTimer}>
-							Reset
-						</button>
-					)}
+				<button name="-3600" onClick={calculateTime}>
+					H &#8681;
+				</button>
+				<button name="-60" onClick={calculateTime}>
+					M &#8681;
+				</button>
+				<button name="-1" onClick={calculateTime}>
+					S &#8681;
+				</button>
 			</div>
-		);
-	}
-}
 
-export default Countdown;
+			{!timerOn && (
+				<button
+					className="Button-start"
+					onClick={() => {
+						setTimerOn(true);
+						setTimerStart(Date.now());
+					}}
+				>
+					Start
+				</button>
+			)}
+		</div>
+	);
+}

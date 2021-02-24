@@ -18,7 +18,6 @@ import ChildCareIcon from "@material-ui/icons/ChildCare";
 import AccessAlarmsIcon from "@material-ui/icons/AccessAlarms";
 import Countdown from "../Countdown/index";
 import "./navstyle.css";
-import { set } from "mongoose";
 
 const navLinks = [
 	{
@@ -78,16 +77,7 @@ HideOnScroll.propTypes = {
 
 export default function HideAppBar(props) {
 	const [showTimer, setShowTimer] = useState(false);
-	const [timerTime, setTimerTime] = useState(null);
-	useEffect(() => {
-		const timer = localStorage.getItem("timer")
-			? JSON.parse(localStorage.getItem("timer"))
-			: {};
-		if (timer.active) {
-			setShowTimer(true);
-			setTimerTime(timer.remaining);
-		}
-	}, []);
+
 	return (
 		<React.Fragment>
 			<CssBaseline />
@@ -134,7 +124,7 @@ Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`
             .join("\n")}
         </Box> */}
 			</Container>
-			{showTimer && <Countdown time={timerTime} />}
+			<Countdown show={showTimer} />
 		</React.Fragment>
 	);
 }
