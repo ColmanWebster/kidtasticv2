@@ -27,11 +27,13 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-export default function Login() {
+export default function Login({ user }) {
 	const classes = useStyles();
+	console.log(user);
 
 	return (
 		<div>
+			<h1>welcome {user.name}</h1>
 			<Grid container spacing={3}>
 				<Grid item xs>
 					<Paper className={classes.paper}>
