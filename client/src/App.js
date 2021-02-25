@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./pages/Home";
 import NoMatch from "./pages/NoMatch";
@@ -15,26 +15,35 @@ import Game from "./pages/Game";
 
 function App() {
 	const [activeLink, setActiveLink] = useState("");
+	const [currentUser, setCurrentUser] = useState({});
+
+	useEffect(() => console.log(currentUser), [currentUser]);
 	return (
 		<>
 			{" "}
 			<Router>
 				<Wrapper>
 					<div>
-						<StoreProvider>
-							<NewNav selected={activeLink} setActiveLink={setActiveLink} />
-							<Switch>
-								<Route exact path="/" component={Home} />
-								<Route exact path="/home" component={Home} />
-								<Route exact path="/watch" component={Watch} />
-								<Route exact path="/watch/:id" component={View} />
-								<Route exact path="/login" component={Login} />
-								<Route exact path="/signup" component={Signup} />
-								<Route exact path="/dashboard" component={Dashboard} />
-								<Route exact path="/game" component={Game} />
-								<Route component={NoMatch} />
-							</Switch>
-						</StoreProvider>
+						{/* <StoreProvider> */}
+						<NewNav selected={activeLink} setActiveLink={setActiveLink} />
+						<Switch>
+							<Route exact path="/" component={Home} />
+							<Route exact path="/home" component={Home} />
+							<Route exact path="/watch" component={Watch} />
+							<Route exact path="/watch/:id" component={View} />
+							<Route exact path="/login" component={Login} />
+							<Route exact path="/signup">
+								<Signup setCurrentUser={setCurrentUser} />
+							</Route>
+							<Route
+								exact
+								path="/dashboard"
+								component={() => <Dashboard user={currentUser} />}
+							/>
+							<Route exact path="/game" component={Game} />
+							<Route component={NoMatch} />
+						</Switch>
+						{/* </StoreProvider> */}
 					</div>
 				</Wrapper>
 				{/* <Footer /> */}

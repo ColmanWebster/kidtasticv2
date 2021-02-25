@@ -10,6 +10,8 @@ import LockIcon from "@material-ui/icons/Lock";
 import Button from "@material-ui/core/Button";
 import AssignmentIndIcon from "@material-ui/icons/AssignmentInd";
 import API from "../../utils/API.js";
+import { useHistory } from "react-router-dom";
+
 const useStyles = makeStyles((theme) => ({
 	root: {
 		flexGrow: 1,
@@ -33,8 +35,10 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-export default function Login() {
+export default function Login({ setCurrentUser }) {
+	const history = useHistory();
 	const [formObject, setFormObject] = useState({});
+	const [errorMsg, setErrorMsg] = useState("");
 	const classes = useStyles();
 
 	function handleInputChange(event) {
@@ -60,8 +64,11 @@ export default function Login() {
 				confirmedPassword: formObject.confirmedPassword,
 			})
 
-				.then((res) => console.log(res.body))
-
+				.then((res) => {
+					console.log("User added to database with name = ", res.data);
+					setCurrentUser(res.data);
+					history.push("/dashboard");
+				})
 				.catch((err) => console.log(err.response.data));
 		}
 	}
@@ -71,6 +78,7 @@ export default function Login() {
 			<Grid container spacing={3}>
 				<Grid item xs={12} lg={12}>
 					<h1 className={classes.font}>Signup here!</h1>
+					{errorMsg && <h2>{errorMsg}</h2>}
 				</Grid>
 				<Grid item xs={3}></Grid>
 				<Grid item xs={6}>
