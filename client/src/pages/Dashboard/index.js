@@ -5,7 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import Watchtxttest from "./images/watch/watchtxttest.png";
 // import Countdown from "../../components/Countdown";
-
+import { motion } from "framer-motion";
 const useStyles = makeStyles((theme) => ({
 	root: {
 		flexGrow: 1,
@@ -27,9 +27,32 @@ const useStyles = makeStyles((theme) => ({
 		borderRadius: "10px",
 	},
 }));
+const pageVariants = {
+	initial: {
+		opacity: 0,
+		x: "-100vw",
+		scale: 0.8,
+	},
+	in: {
+		opacity: 1,
+		x: 0,
+		scale: 1,
+	},
+	out: {
+		opacity: 0,
+		x: "100vw",
+		scale: 1.2,
+	},
+};
 
-export default function Login() {
+const pageTransition = {
+	type: "tween",
+	ease: "anticipate",
+	duration: 1,
+};
+export default function Login({ user }) {
 	const classes = useStyles();
+	console.log(user);
 
 	return (
 		<div>
@@ -179,8 +202,8 @@ export default function Login() {
 							width="400"
 							height="400"
 							frameBorder="0"
-							class="giphy-embed"
 							allowFullScreen
+							title="poopoo"
 						></iframe>
 						<iframe
 							className={classes.giphys}
@@ -188,7 +211,7 @@ export default function Login() {
 							width="400"
 							height="400"
 							frameBorder="0"
-							class="giphy-embed"
+							title="peepee"
 							allowFullScreen
 						></iframe>
 					</Paper>
