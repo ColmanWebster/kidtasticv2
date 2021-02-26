@@ -82,39 +82,39 @@ const navLinks = [
 			/>
 		),
 	},
-	{
-		link: "/watch",
-		title: (
-			<img
-				src={Watchtxttest}
-				alt="Home text"
-				style={{ width: "102px", height: "29px" }}
-			/>
-		),
-		icon: <YouTubeIcon />,
-	},
-	{
-		link: "/Draw",
-		title: (
-			<img
-				src={Drawxttest}
-				alt="Login Icon"
-				style={{ width: "109px", height: "25px" }}
-			/>
-		),
-		icon: <GestureIcon />,
-	},
-	{
-		link: "/imagine",
-		title: (
-			<img
-				src={Imaginetxttest}
-				alt="Login Icon"
-				style={{ width: "135px", height: "29px" }}
-			/>
-		),
-		icon: <GradeIcon />,
-	},
+	// {
+	// 	link: "/watch",
+	// 	title: (
+	// 		<img
+	// 			src={Watchtxttest}
+	// 			alt="Home text"
+	// 			style={{ width: "102px", height: "29px" }}
+	// 		/>
+	// 	),
+	// 	icon: <YouTubeIcon />,
+	// },
+	// {
+	// 	link: "/Draw",
+	// 	title: (
+	// 		<img
+	// 			src={Drawxttest}
+	// 			alt="Login Icon"
+	// 			style={{ width: "109px", height: "25px" }}
+	// 		/>
+	// 	),
+	// 	icon: <GestureIcon />,
+	// },
+	// {
+	// 	link: "/imagine",
+	// 	title: (
+	// 		<img
+	// 			src={Imaginetxttest}
+	// 			alt="Login Icon"
+	// 			style={{ width: "135px", height: "29px" }}
+	// 		/>
+	// 	),
+	// 	icon: <GradeIcon />,
+	// },
 ];
 
 function HideOnScroll(props) {

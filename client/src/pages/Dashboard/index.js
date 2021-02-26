@@ -4,6 +4,8 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import Watchtxttest from "./images/watch/watchtxttest.png";
+import DrawText from "./images/draw/drawtxttest.png";
+import ImagineText from "./images/imagine/imaginetxt.png";
 // import Countdown from "../../components/Countdown";
 import { motion } from "framer-motion";
 const useStyles = makeStyles((theme) => ({
@@ -95,18 +97,36 @@ export default function Login({ user }) {
 			<Grid container spacing={3}>
 				<Grid item xs>
 					<Paper className={classes.paper}>
-						<img
-							src={Watchtxttest}
-							alt="Home text"
-							style={{ width: "102px", height: "29px" }}
-						/>
+						<a href="/watch">
+							<img
+								src={Watchtxttest}
+								alt="Home text"
+								style={{ width: "102px", height: "29px" }}
+							/>
+						</a>
 					</Paper>
 				</Grid>
 				<Grid item xs>
-					<Paper className={classes.paper}>xs</Paper>
+					<Paper className={classes.paper}>
+						<a href="/draw">
+							<img
+								src={DrawText}
+								alt="Draw Text"
+								style={{ width: "109px", height: "25px" }}
+							/>
+						</a>
+					</Paper>
 				</Grid>
 				<Grid item xs>
-					<Paper className={classes.paper}>xs</Paper>
+					<Paper className={classes.paper}>
+						<a href="/imagine">
+							<img
+								src={ImagineText}
+								alt="Login Icon"
+								style={{ width: "135px", height: "29px" }}
+							/>
+						</a>
+					</Paper>
 				</Grid>
 			</Grid>
 			<h1 className={classes.font}>THIS IS THE DASHBOARD!!!!!!</h1>
