@@ -17,37 +17,102 @@ import GradeIcon from "@material-ui/icons/Grade";
 import ChildCareIcon from "@material-ui/icons/ChildCare";
 import AccessAlarmsIcon from "@material-ui/icons/AccessAlarms";
 import Countdown from "../Countdown/index";
+import HouseIcon from "./images/houseIcon.png";
+// import Hometxt from "./hometxt1.png";
+// import Logintxt from "./images/login3.png";
+import Logintxt from "./images/logintxttest.png";
+import LoginIcon from "./images/login.png";
+import hometxttest from "./images/hometxttest.png";
+import DBtxttest from "./images/dashboardtxttest.png";
+import Watchtxttest from "./images/watchtxttest.png";
+import Drawxttest from "./images/drawtxttest.png";
+import Dashimg from "./images/dashimg.png";
+import Imaginetxttest from "./images/imaginetxt.png";
 import "./navstyle.css";
 
 const navLinks = [
 	{
 		link: "/",
-		title: "Home",
-		icon: <HomeIcon />,
+		title: (
+			<img
+				src={hometxttest}
+				alt="Home text"
+				style={{ width: "84px", height: "23px" }}
+			/>
+		),
+		icon: (
+			<img
+				src={HouseIcon}
+				alt="House Icon"
+				style={{ width: "50px", height: "50px" }}
+			/>
+		),
 	},
 	{
 		link: "/login",
-		title: "Login",
-		icon: <ExitToAppIcon />,
+		title: (
+			<img
+				src={Logintxt}
+				alt="Login text"
+				style={{ width: "95px", height: "30px" }}
+			/>
+		),
+		icon: (
+			<img
+				src={LoginIcon}
+				alt="Login Icon"
+				style={{ width: "50px", height: "50px" }}
+			/>
+		),
 	},
 	{
 		link: "/dashboard",
-		title: "Dashboard",
-		icon: <ChildCareIcon />,
+		title: (
+			<img
+				src={DBtxttest}
+				alt="Home text"
+				style={{ width: "180px", height: "29px" }}
+			/>
+		),
+		icon: (
+			<img
+				src={Dashimg}
+				alt="Login Icon"
+				style={{ width: "60px", height: "50px" }}
+			/>
+		),
 	},
 	{
 		link: "/watch",
-		title: "Watch",
+		title: (
+			<img
+				src={Watchtxttest}
+				alt="Home text"
+				style={{ width: "102px", height: "29px" }}
+			/>
+		),
 		icon: <YouTubeIcon />,
 	},
 	{
 		link: "/Draw",
-		title: "Draw",
+		title: (
+			<img
+				src={Drawxttest}
+				alt="Login Icon"
+				style={{ width: "109px", height: "25px" }}
+			/>
+		),
 		icon: <GestureIcon />,
 	},
 	{
 		link: "/imagine",
-		title: "Imagine",
+		title: (
+			<img
+				src={Imaginetxttest}
+				alt="Login Icon"
+				style={{ width: "135px", height: "29px" }}
+			/>
+		),
 		icon: <GradeIcon />,
 	},
 ];

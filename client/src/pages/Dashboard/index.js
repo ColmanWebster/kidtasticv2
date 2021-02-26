@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
+import Watchtxttest from "./images/watch/watchtxttest.png";
 // import Countdown from "../../components/Countdown";
 
 const useStyles = makeStyles((theme) => ({
@@ -32,44 +33,58 @@ export default function Login() {
 
 	return (
 		<div>
+			{/* <Grid container spacing={3}>
+				<Grid item xs>
+					<Paper className={classes.paper}>
+						<h4>
+							consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum
+							dolor sit amet, consectetur lorem ipsum dolor sit amet,
+							consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum
+							dolor sit amet, consectetur lorem ipsum dolor sit amet,
+							consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum
+							dolor sit amet, consectetur lorem ipsum dolor sit amet,
+							consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum
+							dolor sit amet, consectetur lorem ipsum dolor sit amet,
+							consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum
+							dolor sit amet, consectetur lorem ipsum dolor sit amet,
+							consectetur lorem ipsum dolor sit amet, consectetur
+						</h4>
+					</Paper>
+				</Grid>
+				<Grid item xs>
+					<Paper className={classes.paper}>
+						<h4>
+							consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum
+							dolor sit amet, consectetur lorem ipsum dolor sit amet,
+							consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum
+							dolor sit amet, consectetur lorem ipsum dolor sit amet,
+							consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum
+							dolor sit amet, consectetur lorem ipsum dolor sit amet,
+							consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum
+							dolor sit amet, consectetur lorem ipsum dolor sit amet,
+							consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum
+							dolor sit amet, consectetur lorem ipsum dolor sit amet,
+							consectetur lorem ipsum dolor sit amet, consectetur
+						</h4>
+					</Paper>
+				</Grid>
+			</Grid> */}
 			<Grid container spacing={3}>
 				<Grid item xs>
 					<Paper className={classes.paper}>
-						<h4>
-							consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum
-							dolor sit amet, consectetur lorem ipsum dolor sit amet,
-							consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum
-							dolor sit amet, consectetur lorem ipsum dolor sit amet,
-							consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum
-							dolor sit amet, consectetur lorem ipsum dolor sit amet,
-							consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum
-							dolor sit amet, consectetur lorem ipsum dolor sit amet,
-							consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum
-							dolor sit amet, consectetur lorem ipsum dolor sit amet,
-							consectetur lorem ipsum dolor sit amet, consectetur
-						</h4>
+						<img
+							src={Watchtxttest}
+							alt="Home text"
+							style={{ width: "102px", height: "29px" }}
+						/>
 					</Paper>
 				</Grid>
 				<Grid item xs>
-					<Paper className={classes.paper}>
-						<h4>
-							consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum
-							dolor sit amet, consectetur lorem ipsum dolor sit amet,
-							consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum
-							dolor sit amet, consectetur lorem ipsum dolor sit amet,
-							consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum
-							dolor sit amet, consectetur lorem ipsum dolor sit amet,
-							consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum
-							dolor sit amet, consectetur lorem ipsum dolor sit amet,
-							consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum
-							dolor sit amet, consectetur lorem ipsum dolor sit amet,
-							consectetur lorem ipsum dolor sit amet, consectetur
-						</h4>
-					</Paper>
+					<Paper className={classes.paper}>xs</Paper>
 				</Grid>
-				{/* <Grid item xs>
-					<Countdown />
-				</Grid> */}
+				<Grid item xs>
+					<Paper className={classes.paper}>xs</Paper>
+				</Grid>
 			</Grid>
 			<h1 className={classes.font}>THIS IS THE DASHBOARD!!!!!!</h1>
 			<Grid container spacing={2}>
