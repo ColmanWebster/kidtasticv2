@@ -21,7 +21,6 @@ const NoMatch = () => {
                   width="480"
                   height="404"
                   frameBorder="0"
-                  class="giphy-embed"
                   allowFullScreen
                 ></iframe>
               </p>

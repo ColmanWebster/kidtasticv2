@@ -5,6 +5,7 @@ import TextField from "@material-ui/core/TextField";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import API from "../../utils/API.js";
+import { motion } from "framer-motion";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -58,45 +59,74 @@ export default function Login() {
         .catch((err) => console.log(err.response.data));
     }
   };
+  const pageVariants = {
+    initial: {
+      opacity: 0,
+      x: "-100vw",
+      scale: 0.8,
+    },
+    in: {
+      opacity: 1,
+      x: 65,
+      scale: 1,
+    },
+    out: {
+      opacity: 0,
+      x: "100vw",
+      scale: 1.2,
+    },
+  };
 
+  const pageTransition = {
+    type: "spring",
+    ease: "anticipate",
+    duration: 1,
+  };
   return (
-    <div className={classes.root}>
-      <Grid container spacing={3}>
-        <Grid item xs={12} lg={12}>
-          <h1 className={classes.font}>Login</h1>
-        </Grid>
-        <Grid item xs={3}></Grid>
-        <Grid item xs={6}>
-          <Paper className={classes.paper}>
-            <form className={classes.root} noValidate autoComplete="off">
-              <TextField
-                name="username"
-                onChange={handleInputChange}
-                id="standard-secondary"
-                label="username"
-                color="secondary"
-              />
+    <motion.div
+      initial="initial"
+      animate="in"
+      variants={pageVariants}
+      transition={pageTransition}
+    >
+      <div className={classes.root}>
+        <Grid container spacing={3}>
+          <Grid item xs={12} lg={12}>
+            <h1 className={classes.font}>Login</h1>
+          </Grid>
+          <Grid item xs={3}></Grid>
+          <Grid item xs={6}>
+            <Paper className={classes.paper}>
+              <form className={classes.root} noValidate autoComplete="off">
+                <TextField
+                  name="username"
+                  onChange={handleInputChange}
+                  id="standard-secondary"
+                  label="username"
+                  color="secondary"
+                />
+                <br></br>
+                <TextField
+                  name="password"
+                  onChange={handleInputChange}
+                  id="standard-secondary"
+                  label="password"
+                  type="password"
+                  color="secondary"
+                />
+              </form>
               <br></br>
-              <TextField
-                name="password"
-                onChange={handleInputChange}
-                id="standard-secondary"
-                label="password"
-                type="password"
-                color="secondary"
-              />
-            </form>
-            <br></br>
-            <button onClick={handleLoginEvent}>LOGIN</button>
-            {/* <MButton /> */}
-            <h6 id="para">
-              <button id="replace" onClick={hahaha}>
-                Forgot your password?
-              </button>
-            </h6>
-          </Paper>
+              <button onClick={handleLoginEvent}>LOGIN</button>
+              {/* <MButton /> */}
+              <h6 id="para">
+                <button id="replace" onClick={hahaha}>
+                  Forgot your password?
+                </button>
+              </h6>
+            </Paper>
+          </Grid>
         </Grid>
-      </Grid>
-    </div>
+      </div>
+    </motion.div>
   );
 }
