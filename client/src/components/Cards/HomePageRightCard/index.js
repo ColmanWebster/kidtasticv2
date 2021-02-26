@@ -2,6 +2,8 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
+import { motion } from "framer-motion";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -15,7 +17,33 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "1vw",
   },
 }));
+const pageVariants = {
+  initial: {
+    opacity: 0,
+    x: "-100vw",
+    scale: 0.8,
+  },
+  in: {
+    opacity: 1,
+    x: 0,
+    scale: 1,
+  },
+  out: {
+    opacity: 0,
+    x: "100vw",
+    scale: 1.2,
+  },
+};
 
+const pageTransition = {
+  type: "tween",
+  ease: "anticipate",
+  duration: 0.2,
+};
+
+const pageStyle = {
+  position: "absolute",
+};
 const HomePageLeftCard = () => {
   const classes = useStyles();
   return (
@@ -25,9 +53,17 @@ const HomePageLeftCard = () => {
       <p>Grab a parent or signup yourself!</p>
       <p>100% free and no credit card required.</p>
       <br></br>
-      <Button variant="contained" color="primary" href="/signup">
-        Signup
-      </Button>
+      <motion.div
+        initial="initial"
+        animate="in"
+        exit="out"
+        variants={pageVariants}
+        transition={pageTransition}
+      >
+        <Button variant="contained" color="primary" href="/signup">
+          Signup
+        </Button>
+      </motion.div>
     </Paper>
   );
 };
