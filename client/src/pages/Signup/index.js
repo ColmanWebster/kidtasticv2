@@ -65,8 +65,8 @@ export default function Login({ setCurrentUser }) {
 			})
 
 				.then((res) => {
-					console.log("User added to database with name = ", res.data);
-					setCurrentUser(res.data);
+					console.log("User added to database with name = ", res);
+					setCurrentUser(res);
 					history.push("/dashboard");
 				})
 				.catch((err) => console.log(err.response.data));

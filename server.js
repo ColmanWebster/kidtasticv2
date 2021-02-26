@@ -8,6 +8,7 @@ const bcrypt = require("bcrypt");
 
 dotenv.config();
 
+// Connect to the Mongo DB
 mongoose.connect(
 	process.env.DB_CONNECT || "mongodb://localhost/kidtastic",
 	{ useNewUrlParser: true, useUnifiedTopology: true },
@@ -26,9 +27,6 @@ if (process.env.NODE_ENV === "production") {
 }
 // Add routes, both API and view
 app.use(routes);
-
-// Connect to the Mongo DB
-// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/kidtastic");
 
 // Start the API server
 app.listen(PORT, function () {

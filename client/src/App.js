@@ -31,9 +31,11 @@ function App() {
 							<Route exact path="/home" component={Home} />
 							<Route exact path="/watch" component={Watch} />
 							<Route exact path="/watch/:id" component={View} />
-							<Route exact path="/login" component={Login} />
 							<Route exact path="/signup">
 								<Signup setCurrentUser={setCurrentUser} />
+							</Route>
+							<Route exact path="/login">
+								<Login setCurrentUser={setCurrentUser} />
 							</Route>
 							<Route
 								exact
