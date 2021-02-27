@@ -22,16 +22,6 @@ module.exports = {
       res.send(user);
     }
   },
-  loginRequired: function (req, res, next) {
-    if (req.user) {
-      res.send(req.user);
-      next();
-    } else {
-      return res
-        .status(401)
-        .json({ message: "Invalid Token! You must be signed up!" });
-    }
-  },
   currentUser: function (req, res) {
     console.log(req.session);
     res.json(req.session);
