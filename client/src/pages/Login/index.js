@@ -37,22 +37,41 @@ const hahaha = () => {
 export default function Login() {
   const classes = useStyles();
   const [formObject, setFormObject] = useState({});
+
   function handleInputChange(event) {
     const { name, value } = event.target;
     setFormObject({ ...formObject, [name]: value });
     console.log(setFormObject);
   }
-  const handleLoginEvent = () => {
-    if (true) {
-      console.log("Working");
+
+  // const handleLoginEvent = () => {
+  //   if (true) {
+  //     console.log("Working");
+  //     API.loginUser({
+  //       email: req.body.email,
+  //       password: req.body.password,
+  //     })
+  //       .then((res) => console.log(res))
+  //       .catch((err) => console.log(err.response.data));
+  //   }
+  // };
+
+  const loginFormHandler = async (event) => {
+    event.preventDefault();
+
+    // Collect values from the login form
+    const { email, password } = formObject;
+
+    if (email && password) {
+      console.log("working");
+      // Send a POST request to the API endpoint
       API.loginUser({
-        email: formObject.email,
-        password: formObject.password,
-      })
-        .then((res) => console.log(res))
-        .catch((err) => console.log(err.response.data));
+        email: email,
+        password: password,
+      });
     }
   };
+
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>
@@ -66,7 +85,7 @@ export default function Login() {
               <TextField
                 name="email"
                 onChange={handleInputChange}
-                id="standard-secondary"
+                id="email-login"
                 label="email"
                 color="secondary"
               />
@@ -74,14 +93,14 @@ export default function Login() {
               <TextField
                 name="password"
                 onChange={handleInputChange}
-                id="standard-secondary"
+                id="password-login"
                 label="password"
                 type="password"
                 color="secondary"
               />
             </form>
             <br></br>
-            <button onClick={handleLoginEvent}>LOGIN</button>
+            <button onClick={loginFormHandler}>LOGIN</button>
             {/* <MButton /> */}
             <h6 id="para">
               <button id="replace" onClick={hahaha}>
