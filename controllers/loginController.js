@@ -2,14 +2,13 @@ const db = require("../models");
 
 module.exports = {
   login: async function (req, res) {
-    res.send("Hello!!!!!");
-    console.log("Something");
-    const user = await db.User.find({
-      email: req.body.email,
-      password: req.body.password,
+    console.log("Login function called");
+    const user = await db.User.findOne({
+      email: req.body.email
     });
-    if (!user) {
-      res.error("no user found!");
+    if (!user) { 
+      console.log("message that user was not found")
+      return res.status(400).send("Email already exists.");
     }
     if (user.isPasswordValid(req.body.password)) {
       //res.json(user) or store session or send JWT //
