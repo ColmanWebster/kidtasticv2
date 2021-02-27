@@ -14,6 +14,7 @@ import KidSafeCard from "../../components/Cards/KidSafeCard";
 import HundredPercentFreeCard from "../../components/Cards/HundredPercentFreeCard";
 import { VFXProvider } from "react-vfx";
 import { motion } from "framer-motion";
+import { Redirect } from "react-router-dom";
 
 const variants = {
   hidden: { opacity: 0 },
@@ -85,87 +86,90 @@ const pageTransition = {
 // const pageStyle = {
 //   position: "absolute",
 // };
-export default function CenteredGrid() {
+export default function CenteredGrid({ currentUser, loading }) {
   const classes = useStyles();
 
   return (
-    <VFXProvider>
-      <div className="bodyy">
-        <div className={classes.root}>
-          {/* Declare grid spacing */}
-          <Grid container spacing={2}>
-            {/* Grid Start - First Full Row */}
+    <>
+      {!loading && !currentUser.name && <Redirect to="/login" />}
+      <VFXProvider>
+        <div className="bodyy">
+          <div className={classes.root}>
+            {/* Declare grid spacing */}
+            <Grid container spacing={2}>
+              {/* Grid Start - First Full Row */}
 
-            <Grid item xs={12} lg={12}>
-              <h1 className="kidfrontlogo">
-                <motion.div
-                  initial="initial"
-                  animate="in"
-                  exit="out"
-                  variants={pageVariants}
-                  transition={pageTransition}
-                >
-                  <span className={classes.spanK}>K</span>
-                  <span className={classes.spanI}>I</span>
-                  <span className={classes.spanD}>D</span>
-                  <span className={classes.spanT}>T</span>
-                  <span className={classes.spanA}>A</span>
-                  <span className={classes.spanS}>S</span>
-                  <span className={classes.spanTT}>T</span>
-                  <span className={classes.spanII}>I</span>
-                  <span className={classes.spanC}>C</span>
-                </motion.div>
-              </h1>
-            </Grid>
+              <Grid item xs={12} lg={12}>
+                <h1 className="kidfrontlogo">
+                  <motion.div
+                    initial="initial"
+                    animate="in"
+                    exit="out"
+                    variants={pageVariants}
+                    transition={pageTransition}
+                  >
+                    <span className={classes.spanK}>K</span>
+                    <span className={classes.spanI}>I</span>
+                    <span className={classes.spanD}>D</span>
+                    <span className={classes.spanT}>T</span>
+                    <span className={classes.spanA}>A</span>
+                    <span className={classes.spanS}>S</span>
+                    <span className={classes.spanTT}>T</span>
+                    <span className={classes.spanII}>I</span>
+                    <span className={classes.spanC}>C</span>
+                  </motion.div>
+                </h1>
+              </Grid>
 
-            <Grid lg={2} xs={2}></Grid>
-            <Grid item xs={12} lg={6}>
-              <img
-                src="./assets/fontpics/bigbang.png"
-                alt="update"
-                className="bigbang"
-              ></img>
-            </Grid>
-            <Grid lg={2}></Grid>
-            <Grid item xs={12} lg={3}>
-              <HomePageLeftCard />
-            </Grid>
-            <Grid item xs={12} lg={6}>
-              <WelcomeCard />
-            </Grid>
-            <Grid item xs={12} lg={3}>
-              <HomePageRightCard />
-            </Grid>
+              <Grid lg={2} xs={2}></Grid>
+              <Grid item xs={12} lg={6}>
+                <img
+                  src="./assets/fontpics/bigbang.png"
+                  alt="update"
+                  className="bigbang"
+                ></img>
+              </Grid>
+              <Grid lg={2}></Grid>
+              <Grid item xs={12} lg={3}>
+                <HomePageLeftCard />
+              </Grid>
+              <Grid item xs={12} lg={6}>
+                <WelcomeCard />
+              </Grid>
+              <Grid item xs={12} lg={3}>
+                <HomePageRightCard />
+              </Grid>
 
-            <Grid item xs={12} lg={6}>
-              <CovidCard />
-            </Grid>
-            <Grid item xs={12} lg={6}>
-              <KidtasticIntroCard />
-            </Grid>
-            {/* <Grid item xs={6} lg={3}>
+              <Grid item xs={12} lg={6}>
+                <CovidCard />
+              </Grid>
+              <Grid item xs={12} lg={6}>
+                <KidtasticIntroCard />
+              </Grid>
+              {/* <Grid item xs={6} lg={3}>
             <CoolThingsCard />
            
           </Grid> */}
 
-            <Grid item xs={6} lg={6}>
-              <MobileFriendlyCard />
-            </Grid>
+              <Grid item xs={6} lg={6}>
+                <MobileFriendlyCard />
+              </Grid>
 
-            <Grid item xs={6} lg={6}>
-              <KidSafeCard />
-            </Grid>
+              <Grid item xs={6} lg={6}>
+                <KidSafeCard />
+              </Grid>
 
-            <PageDivider />
-            <Grid item xs={12} lg={12}>
-              <LandScapeRightCard />
+              <PageDivider />
+              <Grid item xs={12} lg={12}>
+                <LandScapeRightCard />
+              </Grid>
+              <Grid item xs={12} lg={12}>
+                <HundredPercentFreeCard />
+              </Grid>
             </Grid>
-            <Grid item xs={12} lg={12}>
-              <HundredPercentFreeCard />
-            </Grid>
-          </Grid>
+          </div>
         </div>
-      </div>
-    </VFXProvider>
+      </VFXProvider>
+    </>
   );
 }

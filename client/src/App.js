@@ -18,11 +18,21 @@ import Dashboard from "./pages/Dashboard";
 import View from "./pages/View";
 import Game from "./pages/Game";
 import { AnimatePresence } from "framer-motion";
+import API from "./utils/API";
 function App() {
   const [activeLink, setActiveLink] = useState("");
   const [currentUser, setCurrentUser] = useState({});
+  const [loading, setLoading] = useState(true);
 
-  useEffect(() => console.log(currentUser), [currentUser]);
+  useEffect(() => {
+    API.checkCurrentUser().then(({ data }) => {
+      console.log(data);
+      if (data.user) {
+        setCurrentUser(data.user);
+      }
+      setLoading(false);
+    });
+  }, []);
   const location = useLocation();
 
   return (
@@ -30,10 +40,17 @@ function App() {
       <Wrapper>
         <div>
           {/* <StoreProvider> */}
+          {/* {!loading && !currentUser.name && <Redirect to="/login" />} */}
           <NewNav selected={activeLink} setActiveLink={setActiveLink} />
           <AnimatePresence>
             <Switch location={location} key={location.pathname}>
-              <Route exact path="/" component={Home} />
+              <Route
+                exact
+                path="/"
+                component={() => (
+                  <Home currentUser={currentUser} loading={loading} />
+                )}
+              />
               <Route exact path="/home" component={Home} />
               <Route exact path="/watch" component={Watch} />
               <Route exact path="/watch/:id" component={View} />
