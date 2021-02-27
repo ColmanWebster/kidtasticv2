@@ -91,7 +91,7 @@ export default function CenteredGrid({ currentUser, loading }) {
 
   return (
     <>
-      {!loading && !currentUser.name && <Redirect to="/login" />}
+      {/* {!loading && !currentUser.name && <Redirect to="/login" />} */}
       <VFXProvider>
         <div className="bodyy">
           <div className={classes.root}>

@@ -44,15 +44,15 @@ function App() {
           <NewNav selected={activeLink} setActiveLink={setActiveLink} />
           <AnimatePresence>
             <Switch location={location} key={location.pathname}>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/home" component={Home} />
               <Route
                 exact
-                path="/"
+                path="/watch"
                 component={() => (
-                  <Home currentUser={currentUser} loading={loading} />
+                  <Watch currentUser={currentUser} loading={loading} />
                 )}
               />
-              <Route exact path="/home" component={Home} />
-              <Route exact path="/watch" component={Watch} />
               <Route exact path="/watch/:id" component={View} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup">
@@ -61,8 +61,11 @@ function App() {
               <Route
                 exact
                 path="/dashboard"
-                component={() => <Dashboard user={currentUser} />}
+                component={() => (
+                  <Dashboard currentUser={currentUser} loading={loading} />
+                )}
               />
+
               <Route exact path="/game" component={Game} />
               <Route component={NoMatch} />
             </Switch>
