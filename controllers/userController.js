@@ -7,36 +7,28 @@ module.exports = {
 
   create: async ({ body: { confirmedPassword, ...body } }, res) => {
     const emailExists = await db.User.findOne({ email: body.email });
+    console.log("Confirmed password", confirmedPassword )
+
+    //* check to see if the user al;ready exists 
     if (emailExists) return res.status(400).send("Email already exists.");
     else {
+
+      console.log("Begin eror checking", body) ;
+
+      //* need to check that both passwords have been entered 
+      if (!body.password || !confirmedPassword) 
+      return res.status(400).send("Password and Confirmed Password must be entered.");
+           
+      //* Both passwords must be equal  
+      const chkPwd = body.password;
+      console.log("temp pwd", chkPwd) ;
+      // if (chkPwd !== confirmedPassword) 
+      // return res.status(400).send("Password and Confirmed Password must be identical."); 
+
+      //* New email address all edits passed - create the user 
       db.User.create(body)
         .then((dbModel) => res.json(dbModel))
         .catch((err) => res.status(422).json(err));
     }
   },
-  // signup: async function ({ body: { userData, parentId } }, res) {
-  //   let user;
-  //   console.log(userData);
-  //   if (parentId) {
-  //     user = await db.Child.create(userData);
-  //     //update user with userId add childId to children array;
-  //   } else {
-  //     user = await db.User.create(userData);
-  //   }
-  // },
-/*   login: async function (req, res) {
-    console.log("Something");
-    const user = await db.User.find({
-      email: req.body.email,
-      password: req.body.password,
-    });
-    if (!user) {
-      res.error("no user found!");
-    }
-    if (user.isPasswordValid(req.body.password)) {
-      //res.json(user) or store session or send JWT //
-    } else {
-      res.error("wrong password!");
-    }
-  }, */
 };
