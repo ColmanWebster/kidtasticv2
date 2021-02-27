@@ -10,10 +10,10 @@ import LockIcon from "@material-ui/icons/Lock";
 import Button from "@material-ui/core/Button";
 import AssignmentIndIcon from "@material-ui/icons/AssignmentInd";
 import API from "../../utils/API.js";
-import { useHistory } from "react-router-dom";
-import { motion } from "framer-motion";
-
 const useStyles = makeStyles((theme) => ({
+  error: {
+    border: "1px solid black",
+  },
   root: {
     flexGrow: 1,
   },
@@ -35,45 +35,16 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "30px",
   },
 }));
-const pageVariants = {
-  initial: {
-    opacity: 0,
-    x: "-100vw",
-    scale: 0.8,
-  },
-  in: {
-    opacity: 1,
-    x: 0,
-    scale: 1,
-  },
-  out: {
-    opacity: 0,
-    x: "100vw",
-    scale: 1.2,
-  },
-};
-
-const pageTransition = {
-  type: "tween",
-  ease: "anticipate",
-  duration: 0.2,
-};
-export default function Login({ setCurrentUser }) {
-  const history = useHistory();
+export default function Login() {
   const [formObject, setFormObject] = useState({});
-  const [errorMsg, setErrorMsg] = useState("");
   const classes = useStyles();
-
   function handleInputChange(event) {
     const { name, value } = event.target;
-
     setFormObject({ ...formObject, [name]: value });
     console.log(setFormObject);
   }
-
   function handleFormSubmit(event) {
     event.preventDefault();
-
     const yayGif = `
     <iframe src="https://giphy.com/embed/9PyhoXey73EpW" width="400" height="362" frameBorder="0" class="giphy-embed" allowFullScreen>`;
     const attachMe = (document.getElementById("attachMe").innerHTML = yayGif);
@@ -86,113 +57,99 @@ export default function Login({ setCurrentUser }) {
         password: formObject.password,
         confirmedPassword: formObject.confirmedPassword,
       })
-
-        .then((res) => {
-          console.log("User added to database with name = ", res.data);
-          setCurrentUser(res.data);
-          history.push("/dashboard");
-        })
+        .then((res) => console.log(res.body))
         .catch((err) => console.log(err.response.data));
     }
   }
-
   return (
-    <motion.div
-      initial="initial"
-      animate="in"
-      exit="out"
-      variants={pageVariants}
-      transition={pageTransition}
-    >
-      <div className={classes.root}>
-        <Grid container spacing={3}>
-          <Grid item xs={12} lg={12}>
-            <h1 className={classes.font}>Signup here!</h1>
-            {errorMsg && <h2>{errorMsg}</h2>}
-          </Grid>
-          <Grid item xs={3}></Grid>
-          <Grid item xs={6}>
-            <Paper className={classes.paper}>
-              <InputBox
-                name="name"
-                onChange={handleInputChange}
-                label="Full Name"
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <AccountCircle />
-                    </InputAdornment>
-                  ),
-                }}
-              />
-              ,<br></br>
-              <InputBox
-                name="email"
-                onChange={handleInputChange}
-                label="Email"
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <EmailIcon />
-                    </InputAdornment>
-                  ),
-                }}
-              />
-              <br></br>
-              <InputBox
-                name="username"
-                onChange={handleInputChange}
-                label="Desired Username"
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <AssignmentIndIcon />
-                    </InputAdornment>
-                  ),
-                }}
-              />
-              <br></br>
-              <InputBox
-                name="password"
-                onChange={handleInputChange}
-                label="Password"
-                type="password"
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <LockIcon />
-                    </InputAdornment>
-                  ),
-                }}
-              />
-              <br></br>
-              <InputBox
-                name="confirmedPassword"
-                onChange={handleInputChange}
-                label="Confirm Password"
-                type="password"
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <LockIcon />
-                    </InputAdornment>
-                  ),
-                }}
-              />
-              <br></br>
-              <Button
-                style={{ backgroundColor: "#63eb9b", color: "black" }}
-                variant="contained"
-                color="secondary"
-                onClick={handleFormSubmit}
-              >
-                Join
-              </Button>
-              <div className={classes.videoPlayer} id="attachMe"></div>
-            </Paper>
-          </Grid>
+    <div className={classes.root}>
+      <Grid container spacing={3}>
+        <Grid item xs={12} lg={12}>
+          <h1 className={classes.font}>Signup here!</h1>
         </Grid>
-      </div>
-    </motion.div>
+        <Grid item xs={3}></Grid>
+        <Grid item xs={6}>
+          <Paper className={classes.paper}>
+            <InputBox
+              name="name"
+              onChange={handleInputChange}
+              label="Full Name"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <AccountCircle />
+                  </InputAdornment>
+                ),
+              }}
+            />
+            ,<br></br>
+            <InputBox
+              name="email"
+              onChange={handleInputChange}
+              label="Email"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <EmailIcon />
+                  </InputAdornment>
+                ),
+              }}
+            />
+            <br></br>
+            <InputBox
+              name="username"
+              onChange={handleInputChange}
+              label="Desired Username"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <AssignmentIndIcon />
+                  </InputAdornment>
+                ),
+              }}
+            />
+            <br></br>
+            <InputBox
+              name="password"
+              onChange={handleInputChange}
+              label="Password"
+              type="password"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <LockIcon />
+                  </InputAdornment>
+                ),
+              }}
+            />
+            <br></br>
+            <InputBox
+              name="confirmedPassword"
+              onChange={handleInputChange}
+              label="Confirm Password"
+              type="password"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <LockIcon />
+                  </InputAdornment>
+                ),
+              }}
+            />
+            <br></br>
+            <Button
+              style={{ backgroundColor: "#63EB9B", color: "black" }}
+              variant="contained"
+              color="secondary"
+              onClick={handleFormSubmit}
+            >
+              Join
+            </Button>
+            <div className={classes.videoPlayer} id="attachMe"></div>
+            <div className={classes.error}>error message here</div>
+          </Paper>
+        </Grid>
+      </Grid>
+    </div>
   );
-}
+} 

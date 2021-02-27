@@ -24,7 +24,7 @@ module.exports = {
   //     user = await db.User.create(userData);
   //   }
   // },
-  login: async function (req, res) {
+/*   login: async function (req, res) {
     console.log("Something");
     const user = await db.User.find({
       email: req.body.email,
@@ -38,5 +38,5 @@ module.exports = {
     } else {
       res.error("wrong password!");
     }
-  },
+  }, */
 };
