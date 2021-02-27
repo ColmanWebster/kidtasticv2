@@ -10,6 +10,8 @@ import LockIcon from "@material-ui/icons/Lock";
 import Button from "@material-ui/core/Button";
 import AssignmentIndIcon from "@material-ui/icons/AssignmentInd";
 import API from "../../utils/API.js";
+import { useHistory } from "react-router-dom";
+
 const useStyles = makeStyles((theme) => ({
   error: {
     border: "1px solid black",
@@ -35,9 +37,12 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "30px",
   },
 }));
-export default function Login() {
+export default function Login({ setCurrentUser }) {
+  const history = useHistory();
   const [formObject, setFormObject] = useState({});
-  const classes = useStyles();
+  const [errorMsg, setErrorMsg] = useState("");
+  const classes = useStyles(); 
+
   function handleInputChange(event) {
     const { name, value } = event.target;
     setFormObject({ ...formObject, [name]: value });
@@ -57,7 +62,11 @@ export default function Login() {
         password: formObject.password,
         confirmedPassword: formObject.confirmedPassword,
       })
-        .then((res) => console.log(res.body))
+        .then((res) => {
+          console.log("User added to database with name = ", res.data);
+          setCurrentUser(res.data);
+          history.push("/dashboard");
+        })
         .catch((err) => console.log(err.response.data));
     }
   }

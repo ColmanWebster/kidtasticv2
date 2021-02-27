@@ -7,6 +7,7 @@ module.exports = {
     const user = await db.User.findOne({
       email: req.body.email,
     });
+
     if (!user || !user.checkPassword(req.body.password)) {
       console.log("message that user was not found");
       return res
@@ -20,16 +21,6 @@ module.exports = {
         if (err) console.log("Something went wrong!");
       });
       res.send(user);
-    }
-  },
-  loginRequired: function (req, res, next) {
-    if (req.user) {
-      res.send(req.user);
-      next();
-    } else {
-      return res
-        .status(401)
-        .json({ message: "Invalid Token! You must be signed up!" });
     }
   },
   currentUser: function (req, res) {
