@@ -11,4 +11,6 @@ export default {
   },
 
   checkCurrentUser: () => axios.get("/api/login"),
+
+  logoutCurrentUser: (logoutData) => axios.post("/api/logout", logoutData),
 };

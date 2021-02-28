@@ -27,4 +27,18 @@ module.exports = {
     console.log(req.session);
     res.json(req.session);
   },
+
+  logout: function (req, res) {
+    if (req.session.loggedIn) {
+      res.send("Bye!");
+      req.session.destroy(() => {
+        res.status(204).end();
+      });
+    } else {
+      res.send("Something went wrong, goodbye!");
+      res.status(404).end();
+    }
+  },
 };
+
+// router.post("/logout",
