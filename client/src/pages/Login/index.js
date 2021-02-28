@@ -65,10 +65,13 @@ export default function Login() {
     if (email && password) {
       console.log("working");
       // Send a POST request to the API endpoint
-      API.loginUser({
+      const response = await API.loginUser({
         email: email,
         password: password,
       });
+      if (response) {
+        document.location.replace("/dashboard");
+      }
     }
   };
 
@@ -78,6 +81,8 @@ export default function Login() {
       email: email,
       password: password,
     });
+    alert("Thank you for visiting Kidtastic, come back again soon!");
+    document.location.replace("/");
   };
 
   return (
