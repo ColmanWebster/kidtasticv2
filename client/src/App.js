@@ -12,7 +12,7 @@ import { StoreProvider } from "./utils/GlobalState";
 import NewNav from "./components/Nav/Nav";
 import Watch from "./pages/Watch";
 import Login from "./pages/Login";
-// import Footer from "./components/Footer";
+import Footer from "./components/Footer";
 import Wrapper from "./components/Wrapper";
 import Dashboard from "./pages/Dashboard";
 import View from "./pages/View";
@@ -73,7 +73,7 @@ function App() {
           {/* </StoreProvider> */}
         </div>
       </Wrapper>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }
