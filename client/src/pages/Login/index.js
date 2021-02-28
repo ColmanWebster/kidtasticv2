@@ -8,6 +8,9 @@ import API from "../../utils/API.js";
 const useStyles = makeStyles((theme) => ({
   error: {
     border: "1px solid black",
+    color: "red",
+    fontWeight: "bold",    
+    marginTop: "10px",   
   },
   root: {
     flexGrow: 1,
@@ -63,14 +66,19 @@ export default function Login() {
     const { email, password } = formObject;
 
     if (email && password) {
-      console.log("working");
+      console.log("Login email and password starting now",formObject);
       // Send a POST request to the API endpoint
       const response = await API.loginUser({
         email: email,
         password: password,
       });
-      if (response) {
+      console.log("After call to login and back to front end", response);
+      if (response) { 
+        console.log("Successful login",response);
         document.location.replace("/dashboard");
+      } else {
+        console.log("Login failed", response)
+        const dispErr = (document.getElementById("dspError").innerHTML =  "Invalid Login credentials.  Please enter a valid email address and password."); 
       }
     }
   };
@@ -121,7 +129,7 @@ export default function Login() {
                 Forgot your password?
               </button>
             </h6>
-            <div className={classes.error}>error message here</div>
+            <div className={classes.videoPlayer} id="attachMe"></div>
           </Paper>
         </Grid>
       </Grid>

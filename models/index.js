@@ -1,5 +1,5 @@
 module.exports = {
-  Child: require("./ChildM"),
-  User: require("./User"),
-  // Watch: require("./WatchModel"),
-};
+    Child: require("./Child"),
+    User: require("./User"),
+    // Watch: require("./WatchModel"),
+  };

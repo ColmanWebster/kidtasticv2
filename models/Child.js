@@ -1,39 +1,36 @@
-const { Model, DataTypes } = require("sequelize");
-const sequelize = require("../config/connection");
+const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
+const Schema = mongoose.Schema;
 
-class Child extends Model {}
-
-Child.init(
-  {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true,
-    },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    birthDate: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
-    },
-    userId: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "user",
-        key: "id",
-      },
-    },
+const ChildSchema = new Schema({
+  name: {
+    type: String,
+    required: true,
   },
-  {
-    sequelize,
-    timestamps: false,
-    freezeTableName: true,
-    modelName: "child",
-  }
-);
+  birthDate: {
+    type: Date,
+    required: true,
+    default: new Date(),
+  },
+  email: {
+    type: String,
+    required: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+});
+
+ChildSchema.methods.isPasswordValid = function (password) {
+  return bcrypt.compareSync(password, this.password);
+};
+
+ChildSchema.pre("save", async function (doc) {
+  const hashedPW = await bcrypt.hash(doc.password);
+  return { ...doc, password: hashedPW };
+});
+
+const Child = mongoose.model("Child", ChildSchema);
 
 module.exports = Child;
