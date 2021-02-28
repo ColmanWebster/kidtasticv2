@@ -72,6 +72,14 @@ export default function Login() {
     }
   };
 
+  const logoutFormHandler = async (event) => {
+    const { email, password } = formObject;
+    API.logoutCurrentUser({
+      email: email,
+      password: password,
+    });
+  };
+
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>
@@ -101,6 +109,7 @@ export default function Login() {
             </form>
             <br></br>
             <button onClick={loginFormHandler}>LOGIN</button>
+            <button onClick={logoutFormHandler}>LOGOUT</button>
             {/* <MButton /> */}
             <h6 id="para">
               <button id="replace" onClick={hahaha}>
