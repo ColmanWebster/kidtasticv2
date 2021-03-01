@@ -15,6 +15,9 @@ import { useHistory } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
   error: {
     border: "1px solid black",
+    color: "red",
+    fontWeight: "bold",    
+    marginTop: "10px",   
   },
   root: {
     flexGrow: 1,
@@ -50,9 +53,12 @@ export default function Login({ setCurrentUser }) {
   }
   function handleFormSubmit(event) {
     event.preventDefault();
+   
     const yayGif = `
     <iframe src="https://giphy.com/embed/9PyhoXey73EpW" width="400" height="362" frameBorder="0" class="giphy-embed" allowFullScreen>`;
-    const attachMe = (document.getElementById("attachMe").innerHTML = yayGif);
+   
+    const attachMe = (document.getElementById("attachMe").innerHTML = yayGif); 
+
     if (true) {
       console.log("Working");
       API.saveUser({
@@ -60,6 +66,7 @@ export default function Login({ setCurrentUser }) {
         username: formObject.username,
         email: formObject.email,
         password: formObject.password,
+        ischild: false,
         confirmedPassword: formObject.confirmedPassword,
       })
         .then((res) => {
@@ -67,7 +74,11 @@ export default function Login({ setCurrentUser }) {
           setCurrentUser(res.data);
           history.push("/dashboard");
         })
-        .catch((err) => console.log(err.response.data));
+        .catch((err) => { 
+          console.log(err.response.data)
+          const dispErr = (document.getElementById("dspError").innerHTML = err.response.data); 
+        
+        });
     }
   }
   return (
@@ -154,8 +165,8 @@ export default function Login({ setCurrentUser }) {
             >
               Join
             </Button>
+            <div className={classes.error} id="dspError"></div>
             <div className={classes.videoPlayer} id="attachMe"></div>
-            <div className={classes.error}>error message here</div>
           </Paper>
         </Grid>
       </Grid>

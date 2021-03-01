@@ -9,16 +9,14 @@ module.exports = {
     });
 
     if (!user || !user.checkPassword(req.body.password)) {
-      console.log("message that user was not found");
-      return res
-        .status(401)
-        .send("Invalid Username or Passowrd. Please try again.");
+      console.log("message that user was not found", res);
+      return res.status(400).send("Invalid Login Credentials. Please try again.");
     } else {
       req.session.userId = user._id;
       req.session.user = { ...user._doc };
       req.session.loggedIn = true;
       req.session.save((err) => {
-        if (err) console.log("Something went wrong!");
+        if (err) console.log("Invalid Username or Passwsord. Please try again.");
       });
       res.send(user);
     }
