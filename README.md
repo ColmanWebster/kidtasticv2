@@ -16,7 +16,7 @@ The internet is filled with deliquent trolls who like to post explicit and possi
 clone via ssh or http\
 once cloned run `cd kidtasticv2` in your terminal\
 then run `npm i`\
-then run `npm start`\
+then run `npm start`
 
 The page will load in your browser under localhost:3000\
 You will also see any lint errors in the console.
