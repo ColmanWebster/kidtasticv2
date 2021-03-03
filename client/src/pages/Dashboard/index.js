@@ -55,7 +55,6 @@ const pageTransition = {
 };
 export default function Login({ user, currentUser, loading }) {
   const classes = useStyles();
-  console.log(user);
 
   return (
     <>

@@ -3,13 +3,13 @@ const jwt = require("jsonwebtoken");
 
 module.exports = {
   login: async function (req, res) {
-    console.log("Login function called");
+    console.log("Login function called in loginCOntroller");
     const user = await db.User.findOne({
       email: req.body.email,
     });
 
     if (!user || !user.checkPassword(req.body.password)) {
-      console.log("message that user was not found", res);
+      console.log("message that user was not found");
       return res.status(400).send("Invalid Login Credentials. Please try again.");
     } else {
       req.session.userId = user._id;
