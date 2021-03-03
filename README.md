@@ -45,4 +45,4 @@ You will also see any lint errors in the console.
 
 ##### Special Notes
 
-Special Thanks to [Chad Tao](https://github.com/Chadtao206) who helped us immensely on the final working version, and throughout this whole journey. Your mentorship and knowledge is invaluable and this is just the start of many more to come.
+Special Thanks to [Chad Tao](https://github.com/Chadtao206) who helped us immensely on the final working version, and throughout this whole journey. Your mentorship and knowledge is invaluable and this is just the start of many more to come. - March 2, 2021
