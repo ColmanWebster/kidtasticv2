@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+# Kidtasticv2 (MERN)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Project was created using MERN stack, utilizing the MVC paradigm using the following:
 
-## Available Scripts
+MongoDB : Database -> using Mongoose
+Node : Controller -> handling backend servers
+Express: Controller -> bridging communication from client and the database.
+React: View -> handling front-end client-side rendering
 
-In the project directory, you can run:
+## Description
 
-### `yarn start`
+The internet is filled with deliquent trolls who like to post explicit and possibly violent material on Youtube.com. Kidtastic was created in order to control that scenario by allowing only handpicked videos with many the core video on-click features, disabled. As a kid friendly site the goal is to add as many videos as possible that are safe and friendly to view. Youtube is a free website that requires no payment upon watching, and KidTastic is here to utilize resources for all children who want a troll-free experience.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### How to use
 
-The page will reload if you make edits.\
+clone via ssh or http
+once cloned run `cd kidtasticv2` in your terminal
+then run `npm i`
+then run `npm start`
+
+The page will load in your browser under localhost:3000
 You will also see any lint errors in the console.
 
-### `yarn test`
+### Core Libraries
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[react](https://reactjs.org/)
+[express](https://expressjs.com/)
+[mongoose](https://mongoosejs.com/)
+[material-ui](https://material-ui.com/)
+[framer-motion](https://www.framer.com/motion/)
+[bcrypt](https://www.npmjs.com/package/bcrypt)
+[express-session](https://www.npmjs.com/package/express-session)
+[connect-mongo](https://www.npmjs.com/package/connect-mongo)
+[react-player](https://www.npmjs.com/package/react-player)
+[concurrently](https://www.npmjs.com/package/concurrently)
+[nodemon](https://nodemon.io/)
 
-### `yarn build`
+### Main Contributors
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+[Chad Lew](https://github.com/clew-bot)
+[Mark Shelgran](https://github.com/markshelgren)
+[Martin Buenrostro](https://github.com/Martank949)
+[Tim Budkas](https://github.com/BudkasTim)
+[Colman Webster](https://github.com/ColmanWebster)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+##### Special Notes
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Special Thanks to [Chad Tao](https://github.com/Chadtao206) who helped us immensely on the final working version, and throughout this whole journey. Your mentorship and knowledge is invaluable and this is just the start of many more to come.
