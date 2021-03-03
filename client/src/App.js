@@ -54,7 +54,7 @@ function App() {
                 )}
               />
               <Route exact path="/watch/:id" component={View} />
-              <Route exact path="/login" component={Login} />
+              <Route exact path="/login" component={() => <Login setCurrentUser={setCurrentUser}/>} />
               <Route exact path="/signup">
                 <Signup setCurrentUser={setCurrentUser} />
               </Route>
@@ -73,7 +73,7 @@ function App() {
           {/* </StoreProvider> */}
         </div>
       </Wrapper>
-      <Footer />
+      <Footer isLoggedIn={!!currentUser.name}/>
     </>
   );
 }

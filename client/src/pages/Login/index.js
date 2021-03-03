@@ -5,12 +5,14 @@ import TextField from "@material-ui/core/TextField";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import API from "../../utils/API.js";
+import { useHistory } from "react-router-dom";
+
 const useStyles = makeStyles((theme) => ({
   error: {
     border: "1px solid black",
     color: "red",
-    fontWeight: "bold",    
-    marginTop: "10px",   
+    fontWeight: "bold",
+    marginTop: "10px",
   },
   root: {
     flexGrow: 1,
@@ -37,27 +39,17 @@ const hahaha = () => {
     "<h1>Please email admin@kidtastic.com with your associated username and email for further instructions.</h1>";
   hello.innerHTML = sorryMan;
 };
-export default function Login() {
+export default function Login({setCurrentUser}) {
   const classes = useStyles();
   const [formObject, setFormObject] = useState({});
+  const history = useHistory();
+  const [errorMsg, setErrorMsg] = useState("");
 
   function handleInputChange(event) {
     const { name, value } = event.target;
     setFormObject({ ...formObject, [name]: value });
-    console.log(setFormObject);
+    console.log("Form object from handleInputChange", setFormObject);
   }
-
-  // const handleLoginEvent = () => {
-  //   if (true) {
-  //     console.log("Working");
-  //     API.loginUser({
-  //       email: req.body.email,
-  //       password: req.body.password,
-  //     })
-  //       .then((res) => console.log(res))
-  //       .catch((err) => console.log(err.response.data));
-  //   }
-  // };
 
   const loginFormHandler = async (event) => {
     event.preventDefault();
@@ -66,20 +58,28 @@ export default function Login() {
     const { email, password } = formObject;
 
     if (email && password) {
-      console.log("Login email and password starting now",formObject);
+      console.log("Login email and password starting now", formObject);
       // Send a POST request to the API endpoint
-      const response = await API.loginUser({
-        email: email,
-        password: password,
-      });
-      console.log("After call to login and back to front end", response);
-      if (response) { 
-        console.log("Successful login",response);
-        document.location.replace("/dashboard");
-      } else {
-        console.log("Login failed", response)
-        const dispErr = (document.getElementById("dspError").innerHTML =  "Invalid Login credentials.  Please enter a valid email address and password."); 
+      try {
+        const res = await API.loginUser({
+          email: email,
+          password: password,
+        });
+        console.log("Return result from findone api", res);
+        setCurrentUser(res.data)
+        history.push("/dashboard");
+      } catch (err) {
+        // catches errors both in fetch and response.json
+        console.log("Error from catch", err.response.data);
+        setErrorMsg(err.response.data)
       }
+      // if (response) {
+      //   console.log("Successful login");
+      //   document.location.replace("/dashboard");
+      // } else {
+      //   console.log("Login failed" )
+      //   const dispErr = (document.getElementById("dspError").innerHTML =  "Invalid Login credentials.  Please enter a valid email address and password.");
+      // }
     }
   };
 
@@ -129,7 +129,9 @@ export default function Login() {
                 Forgot your password?
               </button>
             </h6>
-            <div className={classes.videoPlayer} id="attachMe"></div>
+            <div className={classes.error} id="dspError">
+              {errorMsg}
+            </div>
           </Paper>
         </Grid>
       </Grid>
