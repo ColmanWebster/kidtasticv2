@@ -3,6 +3,7 @@ const router = require("express").Router();
 const authRoutes = require("./user.js");
 // const watchRoutes = require("./watch.js");
 const loginRoutes = require("./login.js");
+const logoutRoute = require("./logout.js");
 // Post routes
 // router.get("/", authRoutes);
 
@@ -10,6 +11,7 @@ const loginRoutes = require("./login.js");
 
 router.use("/signup", authRoutes);
 router.use("/login", loginRoutes);
+router.use("/logout", logoutRoute);
 // router.use("/watch", watchRoutes);
 
 module.exports = router;

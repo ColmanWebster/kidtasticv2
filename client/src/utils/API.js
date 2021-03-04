@@ -9,4 +9,8 @@ export default {
   loginUser: function (loginData) {
     return axios.post("/api/login", loginData);
   },
+
+  checkCurrentUser: () => axios.get("/api/login"),
+
+  logoutCurrentUser: (logoutData) => axios.post("/api/logout", logoutData),
 };
