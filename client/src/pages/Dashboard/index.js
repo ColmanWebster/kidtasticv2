@@ -58,42 +58,6 @@ export default function Login({ user }) {
 
 	return (
 		<div>
-			{/* <Grid container spacing={3}>
-				<Grid item xs>
-					<Paper className={classes.paper}>
-						<h4>
-							consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum
-							dolor sit amet, consectetur lorem ipsum dolor sit amet,
-							consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum
-							dolor sit amet, consectetur lorem ipsum dolor sit amet,
-							consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum
-							dolor sit amet, consectetur lorem ipsum dolor sit amet,
-							consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum
-							dolor sit amet, consectetur lorem ipsum dolor sit amet,
-							consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum
-							dolor sit amet, consectetur lorem ipsum dolor sit amet,
-							consectetur lorem ipsum dolor sit amet, consectetur
-						</h4>
-					</Paper>
-				</Grid>
-				<Grid item xs>
-					<Paper className={classes.paper}>
-						<h4>
-							consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum
-							dolor sit amet, consectetur lorem ipsum dolor sit amet,
-							consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum
-							dolor sit amet, consectetur lorem ipsum dolor sit amet,
-							consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum
-							dolor sit amet, consectetur lorem ipsum dolor sit amet,
-							consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum
-							dolor sit amet, consectetur lorem ipsum dolor sit amet,
-							consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum
-							dolor sit amet, consectetur lorem ipsum dolor sit amet,
-							consectetur lorem ipsum dolor sit amet, consectetur
-						</h4>
-					</Paper>
-				</Grid>
-			</Grid> */}
 			<Grid container spacing={3}>
 				<Grid item xs>
 					<Paper className={classes.paper}>
