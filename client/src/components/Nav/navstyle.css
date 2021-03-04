@@ -1,3 +1,8 @@
 .appbarr {
-  align-items: center;
+	align-items: center;
+}
+
+.MuiButton-label {
+	padding-left: 35px;
+	padding-right: 35px;
 }

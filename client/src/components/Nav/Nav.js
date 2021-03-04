@@ -9,25 +9,17 @@ import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import Button from "@material-ui/core/Button";
 import Container from "@material-ui/core/Container";
 import Slide from "@material-ui/core/Slide";
-import GestureIcon from "@material-ui/icons/Gesture";
-import YouTubeIcon from "@material-ui/icons/YouTube";
-import ExitToAppIcon from "@material-ui/icons/ExitToApp";
-import HomeIcon from "@material-ui/icons/Home";
-import GradeIcon from "@material-ui/icons/Grade";
-import ChildCareIcon from "@material-ui/icons/ChildCare";
-import AccessAlarmsIcon from "@material-ui/icons/AccessAlarms";
 import Countdown from "../Countdown/index";
-import HouseIcon from "./images/houseIcon.png";
-// import Hometxt from "./hometxt1.png";
-// import Logintxt from "./images/login3.png";
-import Logintxt from "./images/logintxttest.png";
-import LoginIcon from "./images/login.png";
-import hometxttest from "./images/hometxttest.png";
-import DBtxttest from "./images/dashboardtxttest.png";
-import Watchtxttest from "./images/watchtxttest.png";
-import Drawxttest from "./images/drawtxttest.png";
-import Dashimg from "./images/dashimg.png";
-import Imaginetxttest from "./images/imaginetxt.png";
+import HomeText from "./images/home/hometext.png";
+import HomeIcon from "./images/home/homeicon.png";
+import LoginText from "./images/login/logintext.png";
+import LoginIcon from "./images/login/loginicon.png";
+import DashText from "./images/dashboard/dashtext.png";
+import DashIcon from "./images/dashboard/dashicon.png";
+import TimerText from "./images/timer/timertext.png";
+import TimerIcon from "./images/timer/timericon.png";
+import LogoutText from "./images/logout/logouttext.png";
+import LogoutIcon from "./images/logout/logouticon.png";
 import "./navstyle.css";
 
 const navLinks = [
@@ -35,14 +27,14 @@ const navLinks = [
 		link: "/",
 		title: (
 			<img
-				src={hometxttest}
+				src={HomeText}
 				alt="Home text"
 				style={{ width: "84px", height: "23px" }}
 			/>
 		),
 		icon: (
 			<img
-				src={HouseIcon}
+				src={HomeIcon}
 				alt="House Icon"
 				style={{ width: "50px", height: "50px" }}
 			/>
@@ -52,9 +44,9 @@ const navLinks = [
 		link: "/login",
 		title: (
 			<img
-				src={Logintxt}
+				src={LoginText}
 				alt="Login text"
-				style={{ width: "95px", height: "30px" }}
+				style={{ width: "95px", height: "30px", paddingTop: "5px" }}
 			/>
 		),
 		icon: (
@@ -69,52 +61,36 @@ const navLinks = [
 		link: "/dashboard",
 		title: (
 			<img
-				src={DBtxttest}
-				alt="Home text"
+				src={DashText}
+				alt="Dashboard text"
 				style={{ width: "180px", height: "29px" }}
 			/>
 		),
 		icon: (
 			<img
-				src={Dashimg}
-				alt="Login Icon"
-				style={{ width: "60px", height: "50px" }}
+				src={DashIcon}
+				alt="Dashboard Icon"
+				style={{ width: "56px", height: "56px" }}
 			/>
 		),
 	},
-	// {
-	// 	link: "/watch",
-	// 	title: (
-	// 		<img
-	// 			src={Watchtxttest}
-	// 			alt="Home text"
-	// 			style={{ width: "102px", height: "29px" }}
-	// 		/>
-	// 	),
-	// 	icon: <YouTubeIcon />,
-	// },
-	// {
-	// 	link: "/Draw",
-	// 	title: (
-	// 		<img
-	// 			src={Drawxttest}
-	// 			alt="Login Icon"
-	// 			style={{ width: "109px", height: "25px" }}
-	// 		/>
-	// 	),
-	// 	icon: <GestureIcon />,
-	// },
-	// {
-	// 	link: "/imagine",
-	// 	title: (
-	// 		<img
-	// 			src={Imaginetxttest}
-	// 			alt="Login Icon"
-	// 			style={{ width: "135px", height: "29px" }}
-	// 		/>
-	// 	),
-	// 	icon: <GradeIcon />,
-	// },
+	{
+		link: "/logout",
+		title: (
+			<img
+				src={LogoutText}
+				alt="Logout text"
+				style={{ width: "106px", height: "29px" }}
+			/>
+		),
+		icon: (
+			<img
+				src={LogoutIcon}
+				alt="Login Icon"
+				style={{ width: "85px", height: "63px" }}
+			/>
+		),
+	},
 ];
 
 function HideOnScroll(props) {
@@ -169,10 +145,19 @@ export default function HideAppBar(props) {
 					</Toolbar>
 					<Button
 						onClick={() => setShowTimer(!showTimer)}
-						style={{ position: "absolute", right: "20px", top: "15px" }}
-						startIcon={<AccessAlarmsIcon />}
+						style={{ position: "absolute", right: "20px", top: "5px" }}
 					>
-						<Typography variant="inherit">Timer</Typography>
+						<img
+							src={TimerIcon}
+							alt="Home Icon"
+							style={{ width: "50px", height: "50px" }}
+						/>
+						<img
+							src={TimerText}
+							alt="Home text"
+							style={{ width: "116px", height: "29px" }}
+						/>
+						{/* <Typography variant="inherit">Timer</Typography> */}
 					</Button>
 				</AppBar>
 			</HideOnScroll>
