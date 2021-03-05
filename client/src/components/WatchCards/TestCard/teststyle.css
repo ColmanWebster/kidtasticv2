@@ -18,3 +18,7 @@
 .controllerBtns {
   color: white;
 }
+
+.dashPlayer {
+  border-radius: 10px;
+}

@@ -123,11 +123,11 @@ export default function CenteredGrid({ currentUser, loading }) {
 
               <Grid lg={2} xs={2}></Grid>
               <Grid item xs={12} lg={6}>
-                <img
+                {/* <img
                   src="./assets/fontpics/bigbang.png"
                   alt="update"
                   className="bigbang"
-                ></img>
+                ></img> */}
               </Grid>
               <Grid lg={2}></Grid>
               <Grid item xs={12} lg={3}>

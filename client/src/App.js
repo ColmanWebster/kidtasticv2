@@ -41,7 +41,11 @@ function App() {
         <div>
           {/* <StoreProvider> */}
           {/* {!loading && !currentUser.name && <Redirect to="/login" />} */}
-          <NewNav selected={activeLink} setActiveLink={setActiveLink} />
+          <NewNav
+            selected={activeLink}
+            setActiveLink={setActiveLink}
+            isLoggedIn={!!currentUser.name}
+          />
           <AnimatePresence>
             <Switch location={location} key={location.pathname}>
               <Route exact path="/" component={Home} />
@@ -54,7 +58,11 @@ function App() {
                 )}
               />
               <Route exact path="/watch/:id" component={View} />
-              <Route exact path="/login" component={() => <Login setCurrentUser={setCurrentUser}/>} />
+              <Route
+                exact
+                path="/login"
+                component={() => <Login setCurrentUser={setCurrentUser} />}
+              />
               <Route exact path="/signup">
                 <Signup setCurrentUser={setCurrentUser} />
               </Route>
@@ -62,7 +70,11 @@ function App() {
                 exact
                 path="/dashboard"
                 component={() => (
-                  <Dashboard currentUser={currentUser} loading={loading} />
+                  <Dashboard
+                    currentUser={currentUser}
+                    loading={loading}
+                    user={currentUser}
+                  />
                 )}
               />
 
@@ -73,7 +85,7 @@ function App() {
           {/* </StoreProvider> */}
         </div>
       </Wrapper>
-      <Footer isLoggedIn={!!currentUser.name}/>
+      <Footer isLoggedIn={!!currentUser.name} />
     </>
   );
 }
