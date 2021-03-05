@@ -25,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
   centerTexts2: {
     textAlign: "center",
+    marginLeft: "10px",
   },
   paperr: {
     padding: theme.spacing(1),
@@ -33,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
     background: "#202124",
   },
   intropapers: {
-    background: "#c1c2bc",
+    background: "#e9eb7f",
     marginRight: "10px",
   },
   image: {
@@ -76,7 +77,7 @@ export default function Watch() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => setLoading(false), 3000);
+    setTimeout(() => setLoading(false), 4000);
   }, []);
   return (
     <>
@@ -91,17 +92,10 @@ export default function Watch() {
           <div className={classes.root}>
             <Grid container spacing={1}>
               <Grid item xs={12} lg={12}>
-                <h1 className={classes.centerTexts1}>
-                  Welcome to the Watch Page!
-                </h1>
-                <h3 className={classes.centerTexts2}>
+                {/* <h3 className={classes.centerTexts2}>
                   Here you will find handpicked, unsolicited videos, kid-quality
                   videos! We have picked over 50 hours to enjoy!{" "}
-                </h3>
-                <h3 className={classes.centerTexts2}>
-                  We're noticing sometimes video's aren't playing. This usually
-                  means the video has been taken down by YouTube ┐(￣～￣)┌
-                </h3>
+                </h3> */}
               </Grid>
               <Hidden only={["md", "sm"]}>
                 <Grid item lg={1} md={1}></Grid>
@@ -167,6 +161,7 @@ export default function Watch() {
                     </b>
                   </p>
                 </Paper>
+
                 {/* <button
             onClick={() => {
               // bye.classList.remove("blah");
@@ -177,6 +172,7 @@ export default function Watch() {
             Show
           </button> */}
               </Grid>
+
               <Grid item md={1}></Grid>
               {/* <Grid item lg={6}>
           <Carousel />
@@ -188,6 +184,10 @@ export default function Watch() {
                   </h1>
                 </Paper>
               </Grid>
+              <h2 className={classes.centerTexts2}>
+                We're noticing sometimes video's aren't playing. This usually
+                means the video has been taken down by YouTube ┐(￣～￣)┌
+              </h2>
               <Grid item xs={6}>
                 <article className={classes.paper}>
                   <VideoThumb id="FskTlUZyF_A" src="./assets/thumbs/poke.jpg" />

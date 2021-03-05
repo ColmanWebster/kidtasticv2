@@ -70,3 +70,50 @@
 .bodyy {
   background-color: beige;
 }
+.circular {
+  max-height: 4vw;
+  display: flex;
+  justify-content: center;
+}
+.girl {
+  height: 10vw;
+}
+.doggo {
+  float: right;
+}
+.favacts {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 5vw;
+  margin-bottom: 0vw;
+  margin-top: 0vw;
+}
+.cherry {
+  height: 10vw;
+  float: right;
+}
+.thinker {
+  margin-top: 60px;
+  height: 40vw;
+}
+
+.newcat {
+  height: 7vw;
+}
+
+.thinkingbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bigger {
+  font-size: 5vw;
+  color: black;
+}
+
+.smaller {
+  color: black;
+  font-weight: bolder;
+}

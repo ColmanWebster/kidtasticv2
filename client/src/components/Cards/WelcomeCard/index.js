@@ -12,13 +12,19 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     color: theme.palette.text.secondary,
     backgroundColor: "#87cfff",
+    color: "black",
   },
+  // headering: {
+  //   fontSize: "3vw",
+  //   color: "black",
+  // },
 }));
 
 const WelcomeCard = () => {
   const classes = useStyles();
   return (
     <Paper className={classes.paper}>
+      {/* <h1 className={classes.headering}>Welcome Back!</h1> */}
       <VFXImg
         shader="pixelateTransition"
         src="./assets/images/molang.webp"
