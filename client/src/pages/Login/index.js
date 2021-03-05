@@ -6,7 +6,7 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import API from "../../utils/API.js";
 import { useHistory } from "react-router-dom";
-import Button from "@material-ui/core/button";
+import Button from "@material-ui/core/Button";
 import { motion } from "framer-motion";
 
 const useStyles = makeStyles((theme) => ({
