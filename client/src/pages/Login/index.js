@@ -6,8 +6,6 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import API from "../../utils/API.js";
 import { useHistory } from "react-router-dom";
-import Button from "@material-ui/core/button";
-import { motion } from "framer-motion";
 
 const useStyles = makeStyles((theme) => ({
   error: {
@@ -24,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     color: theme.palette.text.secondary,
     marginBottom: "21vw",
-    backgroundColor: "#d7d3e0",
+    backgroundColor: "#E8B11A",
   },
   margin: {
     margin: theme.spacing(1),
@@ -41,7 +39,7 @@ const hahaha = () => {
     "<h1>Please email admin@kidtastic.com with your associated username and email for further instructions.</h1>";
   hello.innerHTML = sorryMan;
 };
-export default function Login({ setCurrentUser }) {
+export default function Login({setCurrentUser}) {
   const classes = useStyles();
   const [formObject, setFormObject] = useState({});
   const history = useHistory();
@@ -68,12 +66,12 @@ export default function Login({ setCurrentUser }) {
           password: password,
         });
         console.log("Return result from findone api", res);
-        setCurrentUser(res.data);
+        setCurrentUser(res.data)
         history.push("/dashboard");
       } catch (err) {
         // catches errors both in fetch and response.json
         console.log("Error from catch", err.response.data);
-        setErrorMsg(err.response.data);
+        setErrorMsg(err.response.data)
       }
       // if (response) {
       //   console.log("Successful login");
@@ -94,107 +92,49 @@ export default function Login({ setCurrentUser }) {
     alert("Thank you for visiting Kidtastic, come back again soon!");
     document.location.replace("/");
   };
-  const pageVariants = {
-    initial: {
-      opacity: 0,
-      x: "-100vw",
-      scale: 0.4,
-    },
-    in: {
-      opacity: 1,
-      x: 0,
-      scale: 1,
-    },
-    out: {
-      opacity: 0,
-      x: "100vw",
-      scale: 1.2,
-    },
-  };
 
-  const pageTransition = {
-    type: "tween",
-    ease: "anticipate",
-    duration: 0.3,
-  };
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      variants={pageVariants}
-      transition={pageTransition}
-    >
-      <div className={classes.root}>
-        <Grid container spacing={3}>
-          <Grid item xs={12} lg={12}>
-            <h1 className={classes.font}>Login</h1>
-          </Grid>
-          <Grid item xs={3}></Grid>
-          <Grid item xs={6}>
-            <Paper className={classes.paper}>
-              <form className={classes.root} noValidate autoComplete="off">
-                <TextField
-                  name="email"
-                  onChange={handleInputChange}
-                  id="email-login"
-                  label="email"
-                  color="secondary"
-                />
-                <br></br>
-                <TextField
-                  name="password"
-                  onChange={handleInputChange}
-                  id="password-login"
-                  label="password"
-                  type="password"
-                  color="secondary"
-                />
-              </form>
-              <br></br>
-              <Button
-                onClick={loginFormHandler}
-                style={{
-                  backgroundColor: "#9d91c4",
-                  color: "black",
-                  border: "solid 1px beige",
-                  fontWeight: "bolder",
-                }}
-              >
-                LOGIN
-              </Button>
-              {/* <Button
-              onClick={logoutFormHandler}
-              style={{
-                backgroundColor: "#9d91c4",
-                color: "black",
-                border: "solid 1px beige",
-                fontWeight: "bolder",
-              }}
-            >
-              LOGOUT
-            </Button> */}
-              {/* <MButton /> */}
-              <h6 id="para">
-                <Button
-                  id="replace"
-                  onClick={hahaha}
-                  style={{
-                    backgroundColor: "#81b7d2",
-                    color: "black",
-                    border: "solid 1px red",
-                  }}
-                >
-                  Forgot your password?
-                </Button>
-              </h6>
-              <div className={classes.error} id="dspError">
-                {errorMsg}
-              </div>
-            </Paper>
-          </Grid>
+    <div className={classes.root}>
+      <Grid container spacing={3}>
+        <Grid item xs={12} lg={12}>
+          <h1 className={classes.font}>Login</h1>
         </Grid>
-      </div>
-    </motion.div>
+        <Grid item xs={3}></Grid>
+        <Grid item xs={6}>
+          <Paper className={classes.paper}>
+            <form className={classes.root} noValidate autoComplete="off">
+              <TextField
+                name="email"
+                onChange={handleInputChange}
+                id="email-login"
+                label="email"
+                color="secondary"
+              />
+              <br></br>
+              <TextField
+                name="password"
+                onChange={handleInputChange}
+                id="password-login"
+                label="password"
+                type="password"
+                color="secondary"
+              />
+            </form>
+            <br></br>
+            <button onClick={loginFormHandler}>LOGIN</button>
+            <button onClick={logoutFormHandler}>LOGOUT</button>
+            {/* <MButton /> */}
+            <h6 id="para">
+              <button id="replace" onClick={hahaha}>
+                Forgot your password?
+              </button>
+            </h6>
+            <div className={classes.error} id="dspError">
+              {errorMsg}
+            </div>
+          </Paper>
+        </Grid>
+      </Grid>
+    </div>
   );
 }

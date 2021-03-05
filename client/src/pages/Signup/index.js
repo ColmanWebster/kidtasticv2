@@ -16,8 +16,8 @@ const useStyles = makeStyles((theme) => ({
   error: {
     border: "1px solid black",
     color: "red",
-    fontWeight: "bold",
-    marginTop: "10px",
+    fontWeight: "bold",    
+    marginTop: "10px",   
   },
   root: {
     flexGrow: 1,
@@ -43,7 +43,8 @@ const useStyles = makeStyles((theme) => ({
 export default function Login({ setCurrentUser }) {
   const history = useHistory();
   const [formObject, setFormObject] = useState({});
-  const classes = useStyles();
+  const [errorMsg, setErrorMsg] = useState("");
+  const classes = useStyles(); 
 
   function handleInputChange(event) {
     const { name, value } = event.target;
@@ -52,11 +53,11 @@ export default function Login({ setCurrentUser }) {
   }
   function handleFormSubmit(event) {
     event.preventDefault();
-
+   
     const yayGif = `
     <iframe src="https://giphy.com/embed/9PyhoXey73EpW" width="400" height="362" frameBorder="0" class="giphy-embed" allowFullScreen>`;
-
-    const attachMe = (document.getElementById("attachMe").innerHTML = yayGif);
+   
+    const attachMe = (document.getElementById("attachMe").innerHTML = yayGif); 
 
     if (true) {
       console.log("Working");
@@ -73,10 +74,10 @@ export default function Login({ setCurrentUser }) {
           setCurrentUser(res.data);
           history.push("/dashboard");
         })
-        .catch((err) => {
-          console.log(err.response.data);
-          const dispErr = (document.getElementById("dspError").innerHTML =
-            err.response.data);
+        .catch((err) => { 
+          console.log(err.response.data)
+          const dispErr = (document.getElementById("dspError").innerHTML = err.response.data); 
+        
         });
     }
   }
@@ -171,4 +172,4 @@ export default function Login({ setCurrentUser }) {
       </Grid>
     </div>
   );
-}
+} 
