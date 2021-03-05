@@ -97,26 +97,26 @@ const pageTransition = {
   duration: 1,
 };
 
-const doYouWantToGo = () => {
-  confirmAlert({
-    title: "You're about to go Tim's Imagine Page.",
-    message: "You are going to leave Kidtastic.com",
-    buttons: [
-      {
-        label: "Sure, let's go!",
-        onClick: () => {
-          document.location.replace(
-            "https://budkastim.github.io/car_game_tim/"
-          );
-        },
-      },
-      {
-        label: "Nah, I think I'll stay.",
-        onClick: () => {},
-      },
-    ],
-  });
-};
+// const doYouWantToGo = () => {
+//   confirmAlert({
+//     title: "You're about to go Tim's Imagine Page.",
+//     message: "You are going to leave Kidtastic.com",
+//     buttons: [
+//       {
+//         label: "Sure, let's go!",
+//         onClick: () => {
+//           document.location.replace(
+//             "https://budkastim.github.io/car_game_tim/"
+//           );
+//         },
+//       },
+//       {
+//         label: "Nah, I think I'll stay.",
+//         onClick: () => {},
+//       },
+//     ],
+//   });
+// };
 
 // const doYouWantToGo = () => {
 //   alert(
@@ -154,12 +154,13 @@ export default function Login({ user, currentUser, loading }) {
             <Grid item xs></Grid>
             <Grid item xs>
               <Paper className={classes.paper}>
-                <img
-                  src={ImagineText}
-                  alt="Login Icon"
-                  style={{ width: "135px", height: "29px" }}
-                  onClick={doYouWantToGo}
-                />
+                <a href="/imagine">
+                  <img
+                    src={ImagineText}
+                    alt="imagine text"
+                    style={{ width: "135px", height: "29px" }}
+                  />
+                </a>
               </Paper>
             </Grid>
             <Grid container spacing={2}></Grid>
