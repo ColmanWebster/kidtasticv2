@@ -11,6 +11,7 @@ import Signup from "./pages/Signup";
 import { StoreProvider } from "./utils/GlobalState";
 import NewNav from "./components/Nav/Nav";
 import Watch from "./pages/Watch";
+import Imagine from "./pages/Imagine";
 import Login from "./pages/Login";
 import Footer from "./components/Footer";
 import Wrapper from "./components/Wrapper";
@@ -79,6 +80,7 @@ function App() {
               />
 
               <Route exact path="/game" component={Game} />
+              <Route exact path="/imagine" component={Imagine} />
               <Route component={NoMatch} />
             </Switch>
           </AnimatePresence>
